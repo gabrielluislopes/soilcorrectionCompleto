@@ -6,6 +6,7 @@ package gui.telas;
 
 import converte.ConverteKgHaEmP2O5;
 import converte.ConverteMgDm3EmKgHa;
+import correcao_fonte_nutrientes.NutrienteAdicional;
 import correcao_fonte_nutrientes.fosforo.CorrecaoFosforo;
 import correcao_fonte_nutrientes.fosforo.FonteFosforo;
 import static java.awt.event.KeyEvent.VK_ENTER;
@@ -55,6 +56,8 @@ public class CorrecaoFosforoGUI extends javax.swing.JFrame {
         cxCalcio = new javax.swing.JTextField();
         rtCalcio = new javax.swing.JLabel();
         btEnviar = new javax.swing.JButton();
+        rtValorFonte = new javax.swing.JLabel();
+        cxValorFonte = new javax.swing.JTextField();
         rtFundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -219,6 +222,18 @@ public class CorrecaoFosforoGUI extends javax.swing.JFrame {
         getContentPane().add(btEnviar);
         btEnviar.setBounds(470, 616, 160, 50);
 
+        rtValorFonte.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        rtValorFonte.setForeground(new java.awt.Color(0, 0, 0));
+        rtValorFonte.setText("Valor/Ton. (R$)");
+        getContentPane().add(rtValorFonte);
+        rtValorFonte.setBounds(670, 268, 130, 25);
+
+        cxValorFonte.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cxValorFonte.setForeground(new java.awt.Color(0, 0, 0));
+        cxValorFonte.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(cxValorFonte);
+        cxValorFonte.setBounds(800, 268, 150, 30);
+
         rtFundo.setBackground(new java.awt.Color(255, 255, 255));
         rtFundo.setForeground(new java.awt.Color(0, 0, 0));
         rtFundo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -282,6 +297,7 @@ public class CorrecaoFosforoGUI extends javax.swing.JFrame {
     private javax.swing.JTextField cxFosforoSolo;
     private javax.swing.JTextField cxQuantidadeAplicada;
     private javax.swing.JTextField cxTeorFosforo;
+    private javax.swing.JTextField cxValorFonte;
     private javax.swing.JLabel rtCalcio;
     private javax.swing.JLabel rtCorrecao;
     private javax.swing.JLabel rtCusto;
@@ -296,16 +312,19 @@ public class CorrecaoFosforoGUI extends javax.swing.JFrame {
     private javax.swing.JLabel rtUnidadeEficienciaFosforo;
     private javax.swing.JLabel rtUnidadeQuantidadeAplicada;
     private javax.swing.JLabel rtUnidadeTeorFosforo;
+    private javax.swing.JLabel rtValorFonte;
     // End of variables declaration//GEN-END:variables
 
-    public void enviar() {
-        double necessarioMgDm3 = Double.parseDouble(cxTeorFosforo.getText()) - Double.parseDouble(cxFosforoSolo.getText());
+    public void enviar() { 
+        
+        double necessarioMgDm3 = Double.parseDouble(cxTeorFosforo.getText().replace(",", ".")) - 
+                                 Double.parseDouble(cxFosforoSolo.getText().replace(",", "."));
         double necessarioKgHa = new ConverteMgDm3EmKgHa().converte(necessarioMgDm3);
         double necessarioP2O5 = new ConverteKgHaEmP2O5().converte(necessarioKgHa);
         
         double necessidadeFosforo = new CorrecaoFosforo().calculaEficienciaNutriente(
                 necessarioP2O5,
-                (Double.parseDouble(cxEficienciaFosforo.getText()))/100);
+                (Double.parseDouble(cxEficienciaFosforo.getText().replace(",", ".")))/100);
         
         double qtdAplicar;
         double custo;
@@ -314,19 +333,19 @@ public class CorrecaoFosforoGUI extends javax.swing.JFrame {
                 qtdAplicar = new CorrecaoFosforo().calculaQuantidadeAplicar(
                         necessidadeFosforo, 
                         FonteFosforo.SUPERFOSFATO_SIMPLES);
-                custo = new CorrecaoFosforo().calculaCusto(1260.00, qtdAplicar);
+                custo = new CorrecaoFosforo().calculaCusto(Double.parseDouble(cxValorFonte.getText().replace(",", ".")), qtdAplicar);
                 break;
             case "Superfosfato Triplo":
                 qtdAplicar = new CorrecaoFosforo().calculaQuantidadeAplicar(
                         necessidadeFosforo, 
                         FonteFosforo.SUPERFOSFATO_TRIPO);
-                custo = new CorrecaoFosforo().calculaCusto(3780.00, qtdAplicar);
+                custo = new CorrecaoFosforo().calculaCusto(Double.parseDouble(cxValorFonte.getText().replace(",", ".")), qtdAplicar);
                 break;
             case "MAP":
                 qtdAplicar = new CorrecaoFosforo().calculaQuantidadeAplicar(
                         necessidadeFosforo, 
                         FonteFosforo.MAP);
-                custo = new CorrecaoFosforo().calculaCusto(2520.00, qtdAplicar);
+                custo = new CorrecaoFosforo().calculaCusto(Double.parseDouble(cxValorFonte.getText().replace(",", ".")), qtdAplicar);
                 break;
             default:
                 qtdAplicar = 0;
@@ -334,8 +353,10 @@ public class CorrecaoFosforoGUI extends javax.swing.JFrame {
                 break;
         }
         
+        
         DecimalFormat f = new DecimalFormat("#.##");
         cxQuantidadeAplicada.setText(f.format(qtdAplicar));
         cxCusto.setText(f.format(custo));
+
     }
 }
