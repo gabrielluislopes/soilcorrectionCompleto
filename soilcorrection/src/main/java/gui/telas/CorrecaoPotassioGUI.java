@@ -363,16 +363,13 @@ public class CorrecaoPotassioGUI extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void enviar() {
-        double presenteCTC = Double.parseDouble(cxPotassioSolo.getText().replace(",", ".")) /
-                           ((Double.parseDouble(cxPotassioSolo.getText().replace(",", ".")) 
-                           + Double.parseDouble(cxCalcioSolo.getText().replace(",", "."))
-                           + Double.parseDouble(cxMagnesioSolo.getText().replace(",", "."))
-                           + Double.parseDouble(cxHALSolo.getText().replace(",", ".")))
-                           * 100);
-        String conversao = Double.toString(presenteCTC);
-        String presenteNaCTC = conversao.substring(0, 6);
-        presenteCTC = Double.parseDouble(presenteNaCTC);
- 
+        double presenteCTC = (Double.parseDouble(cxPotassioSolo.getText().replace(",", ".")) /
+                             (Double.parseDouble(cxPotassioSolo.getText().replace(",", ".")) 
+                            + Double.parseDouble(cxCalcioSolo.getText().replace(",", "."))
+                            + Double.parseDouble(cxMagnesioSolo.getText().replace(",", "."))
+                            + Double.parseDouble(cxHALSolo.getText().replace(",", "."))))
+                            * 100;
+
         BigDecimal bd = new BigDecimal(presenteCTC).setScale(3, RoundingMode.HALF_EVEN);
         presenteCTC = bd.doubleValue();
         
