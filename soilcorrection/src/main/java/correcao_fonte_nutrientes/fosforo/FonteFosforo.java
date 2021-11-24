@@ -26,7 +26,7 @@ public enum FonteFosforo
     MAP(
         0.48, 
         Set.of(
-            new NutrienteAdicional(NomeNutrienteAdicional.CALCIO, 0.09)));
+            new NutrienteAdicional(NomeNutrienteAdicional.NITROGENIO, 0.09)));
 
     private final double teorFonte;
     private final Set<NutrienteAdicional> nutrientesAdicionais;

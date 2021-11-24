@@ -9,8 +9,8 @@ import converte.ConverteMgDm3EmKgHa;
 import correcao_fonte_nutrientes.NutrienteAdicional;
 import correcao_fonte_nutrientes.fosforo.CorrecaoFosforo;
 import correcao_fonte_nutrientes.fosforo.FonteFosforo;
-import java.text.DecimalFormat;
-import java.util.Iterator;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Set;
 
 /**
@@ -52,10 +52,7 @@ public class CorrecaoFosforoGUI extends javax.swing.JFrame {
         rtCusto = new javax.swing.JLabel();
         cxCusto = new javax.swing.JTextField();
         rtCorrecao = new javax.swing.JLabel();
-        cxEnxofre = new javax.swing.JTextField();
-        rtEnxofre = new javax.swing.JLabel();
-        cxCalcio = new javax.swing.JTextField();
-        rtCalcio = new javax.swing.JLabel();
+        cxCorrecaoAdicional = new javax.swing.JTextField();
         btEnviar = new javax.swing.JButton();
         rtValorFonte = new javax.swing.JLabel();
         cxValorFonte = new javax.swing.JTextField();
@@ -176,39 +173,14 @@ public class CorrecaoFosforoGUI extends javax.swing.JFrame {
         getContentPane().add(rtCorrecao);
         rtCorrecao.setBounds(287, 502, 450, 25);
 
-        cxEnxofre.setEditable(false);
-        cxEnxofre.setBackground(new java.awt.Color(153, 153, 153));
-        cxEnxofre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cxEnxofre.setForeground(new java.awt.Color(0, 0, 0));
-        cxEnxofre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        cxEnxofre.setPreferredSize(new java.awt.Dimension(70, 30));
-        getContentPane().add(cxEnxofre);
-        cxEnxofre.setBounds(287, 545, 70, 30);
-
-        rtEnxofre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rtEnxofre.setForeground(new java.awt.Color(0, 0, 0));
-        rtEnxofre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        rtEnxofre.setText("ENXOFRE");
-        rtEnxofre.setPreferredSize(new java.awt.Dimension(70, 20));
-        getContentPane().add(rtEnxofre);
-        rtEnxofre.setBounds(375, 550, 70, 20);
-
-        cxCalcio.setEditable(false);
-        cxCalcio.setBackground(new java.awt.Color(153, 153, 153));
-        cxCalcio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cxCalcio.setForeground(new java.awt.Color(0, 0, 0));
-        cxCalcio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        cxCalcio.setPreferredSize(new java.awt.Dimension(70, 30));
-        getContentPane().add(cxCalcio);
-        cxCalcio.setBounds(579, 545, 70, 30);
-
-        rtCalcio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rtCalcio.setForeground(new java.awt.Color(0, 0, 0));
-        rtCalcio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        rtCalcio.setText("CÁLCIO");
-        rtCalcio.setPreferredSize(new java.awt.Dimension(70, 16));
-        getContentPane().add(rtCalcio);
-        rtCalcio.setBounds(667, 552, 70, 16);
+        cxCorrecaoAdicional.setEditable(false);
+        cxCorrecaoAdicional.setBackground(new java.awt.Color(153, 153, 153));
+        cxCorrecaoAdicional.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cxCorrecaoAdicional.setForeground(new java.awt.Color(0, 0, 0));
+        cxCorrecaoAdicional.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        cxCorrecaoAdicional.setPreferredSize(new java.awt.Dimension(70, 30));
+        getContentPane().add(cxCorrecaoAdicional);
+        cxCorrecaoAdicional.setBounds(162, 545, 700, 42);
 
         btEnviar.setBackground(new java.awt.Color(255, 255, 255));
         btEnviar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -221,7 +193,7 @@ public class CorrecaoFosforoGUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btEnviar);
-        btEnviar.setBounds(470, 616, 160, 50);
+        btEnviar.setBounds(432, 616, 160, 50);
 
         rtValorFonte.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtValorFonte.setForeground(new java.awt.Color(0, 0, 0));
@@ -291,19 +263,16 @@ public class CorrecaoFosforoGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btEnviar;
     private javax.swing.JComboBox<String> cbFonteFosforo;
-    private javax.swing.JTextField cxCalcio;
+    private javax.swing.JTextField cxCorrecaoAdicional;
     private javax.swing.JTextField cxCusto;
     private javax.swing.JTextField cxEficienciaFosforo;
-    private javax.swing.JTextField cxEnxofre;
     private javax.swing.JTextField cxFosforoSolo;
     private javax.swing.JTextField cxQuantidadeAplicada;
     private javax.swing.JTextField cxTeorFosforo;
     private javax.swing.JTextField cxValorFonte;
-    private javax.swing.JLabel rtCalcio;
     private javax.swing.JLabel rtCorrecao;
     private javax.swing.JLabel rtCusto;
     private javax.swing.JLabel rtEficienciaFosforo;
-    private javax.swing.JLabel rtEnxofre;
     private javax.swing.JLabel rtFonteFosforo;
     private javax.swing.JLabel rtFosforoSolo;
     private javax.swing.JLabel rtFundo;
@@ -329,45 +298,92 @@ public class CorrecaoFosforoGUI extends javax.swing.JFrame {
         
         double qtdAplicar;
         double custo;
-        //Set<NutrienteAdicional> nutrientesAdicionais;
+        Set<NutrienteAdicional> nutrientesAdicionais;
+        String nomeNutrienteAdicional1;
+        double valorCorrecaoAdicional1;
+        String nomeNutrienteAdicional2;
+        double valorCorrecaoAdicional2;
         switch (cbFonteFosforo.getSelectedItem().toString()){
             case "Superfosfato Simples":
                 qtdAplicar = new CorrecaoFosforo().calculaQuantidadeAplicar(
                         necessidadeFosforo, 
                         FonteFosforo.SUPERFOSFATO_SIMPLES);
+                BigDecimal bd1 = new BigDecimal(qtdAplicar).setScale(2, RoundingMode.HALF_EVEN);
+                cxQuantidadeAplicada.setText(Double.toString(bd1.doubleValue()));
+                
                 custo = new CorrecaoFosforo().calculaCusto(Double.parseDouble(cxValorFonte.getText().replace(",", ".")), qtdAplicar);
-                Set<NutrienteAdicional> nutrientesAdicionais = new CorrecaoFosforo()
+                BigDecimal bd2 = new BigDecimal(custo).setScale(2, RoundingMode.HALF_EVEN);
+                cxCusto.setText(Double.toString(bd2.doubleValue()));
+                
+                nutrientesAdicionais = new CorrecaoFosforo()
                                                                 .getNutrientesAdicionais(
                                                                         qtdAplicar, 
                                                                         FonteFosforo.SUPERFOSFATO_SIMPLES);
-                Iterator it = nutrientesAdicionais.iterator();
-                while(it.hasNext()){
-                    var teste = it.next();
-                    System.out.println(teste);
-                }
+                
+                nomeNutrienteAdicional1 = nutrientesAdicionais.stream().skip(0).findFirst().get().getNome().toString();
+                valorCorrecaoAdicional1 = nutrientesAdicionais.stream().skip(0).findFirst().get().getCorrecaoAdicional();
+                BigDecimal bd3 = new BigDecimal(valorCorrecaoAdicional1).setScale(1, RoundingMode.HALF_EVEN);
+                nomeNutrienteAdicional2 = nutrientesAdicionais.stream().skip(1).findFirst().get().getNome().toString();
+                valorCorrecaoAdicional2 = nutrientesAdicionais.stream().skip(1).findFirst().get().getCorrecaoAdicional();
+                BigDecimal bd4 = new BigDecimal(valorCorrecaoAdicional2).setScale(1, RoundingMode.HALF_EVEN);
+                cxCorrecaoAdicional.setText(nomeNutrienteAdicional1+": "
+                                            +Double.toString(bd3.doubleValue())+" e "
+                        +nomeNutrienteAdicional2+": "
+                        +Double.toString(bd4.doubleValue()));
+                
                 
                 break;
             case "Superfosfato Triplo":
                 qtdAplicar = new CorrecaoFosforo().calculaQuantidadeAplicar(
                         necessidadeFosforo, 
                         FonteFosforo.SUPERFOSFATO_TRIPO);
+                BigDecimal bd5 = new BigDecimal(qtdAplicar).setScale(2, RoundingMode.HALF_EVEN);
+                cxQuantidadeAplicada.setText(Double.toString(bd5.doubleValue()));
+                
                 custo = new CorrecaoFosforo().calculaCusto(Double.parseDouble(cxValorFonte.getText().replace(",", ".")), qtdAplicar);
+                BigDecimal bd6 = new BigDecimal(custo).setScale(2, RoundingMode.HALF_EVEN);
+                cxCusto.setText(Double.toString(bd6.doubleValue()));
+                
+                nutrientesAdicionais = new CorrecaoFosforo()
+                                                                .getNutrientesAdicionais(
+                                                                        qtdAplicar, 
+                                                                        FonteFosforo.SUPERFOSFATO_TRIPO);
+                
+                nomeNutrienteAdicional1 = nutrientesAdicionais.stream().findFirst().get().getNome().toString();
+                valorCorrecaoAdicional1 = nutrientesAdicionais.stream().findFirst().get().getCorrecaoAdicional();
+                BigDecimal bd7 = new BigDecimal(valorCorrecaoAdicional1).setScale(1, RoundingMode.HALF_EVEN);
+                cxCorrecaoAdicional.setText(nomeNutrienteAdicional1+": "
+                                            +Double.toString(bd7.doubleValue()));
+                
                 break;
             case "MAP":
                 qtdAplicar = new CorrecaoFosforo().calculaQuantidadeAplicar(
                         necessidadeFosforo, 
                         FonteFosforo.MAP);
+                BigDecimal bd8 = new BigDecimal(qtdAplicar).setScale(2, RoundingMode.HALF_EVEN);
+                cxQuantidadeAplicada.setText(Double.toString(bd8.doubleValue()));
+                
                 custo = new CorrecaoFosforo().calculaCusto(Double.parseDouble(cxValorFonte.getText().replace(",", ".")), qtdAplicar);
+                BigDecimal bd9 = new BigDecimal(custo).setScale(2, RoundingMode.HALF_EVEN);
+                cxCusto.setText(Double.toString(bd9.doubleValue()));
+                
+                nutrientesAdicionais = new CorrecaoFosforo()
+                                                                .getNutrientesAdicionais(
+                                                                        qtdAplicar, 
+                                                                        FonteFosforo.MAP);
+                
+                nomeNutrienteAdicional1 = nutrientesAdicionais.stream().findFirst().get().getNome().toString();
+                valorCorrecaoAdicional1 = nutrientesAdicionais.stream().findFirst().get().getCorrecaoAdicional();
+                BigDecimal bd10 = new BigDecimal(valorCorrecaoAdicional1).setScale(1, RoundingMode.HALF_EVEN);
+                cxCorrecaoAdicional.setText(nomeNutrienteAdicional1+": "
+                                            +Double.toString(bd10.doubleValue()));
+                
                 break;
             default:
                 qtdAplicar = 0;
                 custo = 0;
                 break;
         }
-        
-        DecimalFormat f = new DecimalFormat("#.##");
-        cxQuantidadeAplicada.setText(f.format(qtdAplicar));
-        cxCusto.setText(f.format(custo));
 
     }
 }
