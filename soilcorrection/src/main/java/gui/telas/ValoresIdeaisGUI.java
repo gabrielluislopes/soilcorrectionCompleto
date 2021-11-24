@@ -4,6 +4,8 @@
  */
 package gui.telas;
 
+import ctc.TexturaSolo;
+
 /**
  *
  * @author gabri
@@ -29,59 +31,25 @@ public class ValoresIdeaisGUI extends javax.swing.JFrame {
         rtTitulo = new javax.swing.JLabel();
         rtFosforo = new javax.swing.JLabel();
         rtUnidadeFosforo = new javax.swing.JLabel();
-        rtFosforoSolo = new javax.swing.JLabel();
-        cxFosforoSolo = new javax.swing.JTextField();
-        rtFosforoIdeal = new javax.swing.JLabel();
         cxFosforoIdeal = new javax.swing.JTextField();
-        rtFosforoCorrecao = new javax.swing.JLabel();
-        cxFosforoCorrecao = new javax.swing.JTextField();
         rtPotassio = new javax.swing.JLabel();
         rtUnidadePotassio = new javax.swing.JLabel();
-        rtPotassioSolo = new javax.swing.JLabel();
-        cxPotassioSolo = new javax.swing.JTextField();
-        rtPotassioIdeal = new javax.swing.JLabel();
         cxPotassioIdeal = new javax.swing.JTextField();
-        rtPotassioCorrecao = new javax.swing.JLabel();
-        cxPotassioCorrecao = new javax.swing.JTextField();
         rtCalcio = new javax.swing.JLabel();
         rtUnidadeCalcio = new javax.swing.JLabel();
-        rtCalcioSolo = new javax.swing.JLabel();
-        cxCalcioSolo = new javax.swing.JTextField();
-        rtCalcioIdeal = new javax.swing.JLabel();
         cxCalcioIdeal = new javax.swing.JTextField();
-        rtCalcioCorrecao = new javax.swing.JLabel();
-        cxCalcioCorrecao = new javax.swing.JTextField();
         rtMagnesio = new javax.swing.JLabel();
         rtUnidadeMagnesio = new javax.swing.JLabel();
-        rtMagnesioSolo = new javax.swing.JLabel();
-        cxMagnesioSolo = new javax.swing.JTextField();
-        rtMagnesioIdeal = new javax.swing.JLabel();
         cxMagnesioIdeal = new javax.swing.JTextField();
-        rtMagnesioCorrecao = new javax.swing.JLabel();
-        cxMagnesioCorrecao = new javax.swing.JTextField();
         rtEnxofre = new javax.swing.JLabel();
         rtUnidadeEnxofre = new javax.swing.JLabel();
-        rtEnxofreSolo = new javax.swing.JLabel();
-        cxEnxofreSolo = new javax.swing.JTextField();
-        rtEnxofreIdeal = new javax.swing.JLabel();
         cxEnxofreIdeal = new javax.swing.JTextField();
-        rtEnxofreCorrecao = new javax.swing.JLabel();
-        cxEnxofreCorrecao = new javax.swing.JTextField();
         rtAluminio = new javax.swing.JLabel();
-        rtAluminioSolo = new javax.swing.JLabel();
-        cxAluminioSolo = new javax.swing.JTextField();
-        rtAluminioIdeal = new javax.swing.JLabel();
         cxAluminioIdeal = new javax.swing.JTextField();
-        rtAluminioCorrecao = new javax.swing.JLabel();
-        cxAluminioCorrecao = new javax.swing.JTextField();
         rtHAL = new javax.swing.JLabel();
-        rtHALSolo = new javax.swing.JLabel();
-        cxHALSolo = new javax.swing.JTextField();
-        rtHALIdeal = new javax.swing.JLabel();
         cxHALIdeal = new javax.swing.JTextField();
-        rtHALCorrecao = new javax.swing.JLabel();
-        cxHALCorrecao = new javax.swing.JTextField();
-        btEnviar = new javax.swing.JButton();
+        btConsultar = new javax.swing.JButton();
+        cbTipoSolo = new javax.swing.JComboBox<>();
         rtFundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -102,31 +70,13 @@ public class ValoresIdeaisGUI extends javax.swing.JFrame {
         rtFosforo.setForeground(new java.awt.Color(0, 0, 0));
         rtFosforo.setText("Fósforo");
         getContentPane().add(rtFosforo);
-        rtFosforo.setBounds(120, 87, 64, 25);
+        rtFosforo.setBounds(120, 218, 64, 25);
 
         rtUnidadeFosforo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         rtUnidadeFosforo.setForeground(new java.awt.Color(0, 0, 0));
         rtUnidadeFosforo.setText("(mg.dm³)");
         getContentPane().add(rtUnidadeFosforo);
-        rtUnidadeFosforo.setBounds(205, 91, 56, 20);
-
-        rtFosforoSolo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rtFosforoSolo.setForeground(new java.awt.Color(0, 0, 0));
-        rtFosforoSolo.setText("No solo:");
-        getContentPane().add(rtFosforoSolo);
-        rtFosforoSolo.setBounds(120, 123, 50, 20);
-
-        cxFosforoSolo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cxFosforoSolo.setForeground(new java.awt.Color(0, 0, 0));
-        cxFosforoSolo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        getContentPane().add(cxFosforoSolo);
-        cxFosforoSolo.setBounds(205, 118, 150, 30);
-
-        rtFosforoIdeal.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rtFosforoIdeal.setForeground(new java.awt.Color(0, 0, 0));
-        rtFosforoIdeal.setText("Ideal:");
-        getContentPane().add(rtFosforoIdeal);
-        rtFosforoIdeal.setBounds(373, 123, 32, 20);
+        rtUnidadeFosforo.setBounds(205, 222, 56, 20);
 
         cxFosforoIdeal.setEditable(false);
         cxFosforoIdeal.setBackground(new java.awt.Color(153, 153, 153));
@@ -134,51 +84,19 @@ public class ValoresIdeaisGUI extends javax.swing.JFrame {
         cxFosforoIdeal.setForeground(new java.awt.Color(0, 0, 0));
         cxFosforoIdeal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(cxFosforoIdeal);
-        cxFosforoIdeal.setBounds(423, 118, 150, 30);
-
-        rtFosforoCorrecao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rtFosforoCorrecao.setForeground(new java.awt.Color(0, 0, 0));
-        rtFosforoCorrecao.setText("Após correções:");
-        getContentPane().add(rtFosforoCorrecao);
-        rtFosforoCorrecao.setBounds(591, 123, 96, 20);
-
-        cxFosforoCorrecao.setEditable(false);
-        cxFosforoCorrecao.setBackground(new java.awt.Color(153, 153, 153));
-        cxFosforoCorrecao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cxFosforoCorrecao.setForeground(new java.awt.Color(0, 0, 0));
-        cxFosforoCorrecao.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        getContentPane().add(cxFosforoCorrecao);
-        cxFosforoCorrecao.setBounds(705, 118, 150, 30);
+        cxFosforoIdeal.setBounds(300, 218, 150, 30);
 
         rtPotassio.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rtPotassio.setForeground(new java.awt.Color(0, 0, 0));
         rtPotassio.setText("Potássio");
         getContentPane().add(rtPotassio);
-        rtPotassio.setBounds(120, 166, 71, 25);
+        rtPotassio.setBounds(120, 266, 71, 25);
 
         rtUnidadePotassio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         rtUnidadePotassio.setForeground(new java.awt.Color(0, 0, 0));
         rtUnidadePotassio.setText("(cmol)");
         getContentPane().add(rtUnidadePotassio);
-        rtUnidadePotassio.setBounds(209, 170, 37, 20);
-
-        rtPotassioSolo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rtPotassioSolo.setForeground(new java.awt.Color(0, 0, 0));
-        rtPotassioSolo.setText("No solo:");
-        getContentPane().add(rtPotassioSolo);
-        rtPotassioSolo.setBounds(120, 202, 50, 20);
-
-        cxPotassioSolo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cxPotassioSolo.setForeground(new java.awt.Color(0, 0, 0));
-        cxPotassioSolo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        getContentPane().add(cxPotassioSolo);
-        cxPotassioSolo.setBounds(205, 197, 150, 30);
-
-        rtPotassioIdeal.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rtPotassioIdeal.setForeground(new java.awt.Color(0, 0, 0));
-        rtPotassioIdeal.setText("Ideal:");
-        getContentPane().add(rtPotassioIdeal);
-        rtPotassioIdeal.setBounds(373, 202, 32, 20);
+        rtUnidadePotassio.setBounds(209, 270, 37, 20);
 
         cxPotassioIdeal.setEditable(false);
         cxPotassioIdeal.setBackground(new java.awt.Color(153, 153, 153));
@@ -186,51 +104,19 @@ public class ValoresIdeaisGUI extends javax.swing.JFrame {
         cxPotassioIdeal.setForeground(new java.awt.Color(0, 0, 0));
         cxPotassioIdeal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(cxPotassioIdeal);
-        cxPotassioIdeal.setBounds(423, 197, 150, 30);
-
-        rtPotassioCorrecao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rtPotassioCorrecao.setForeground(new java.awt.Color(0, 0, 0));
-        rtPotassioCorrecao.setText("Após correções:");
-        getContentPane().add(rtPotassioCorrecao);
-        rtPotassioCorrecao.setBounds(591, 202, 96, 20);
-
-        cxPotassioCorrecao.setEditable(false);
-        cxPotassioCorrecao.setBackground(new java.awt.Color(153, 153, 153));
-        cxPotassioCorrecao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cxPotassioCorrecao.setForeground(new java.awt.Color(0, 0, 0));
-        cxPotassioCorrecao.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        getContentPane().add(cxPotassioCorrecao);
-        cxPotassioCorrecao.setBounds(705, 197, 150, 30);
+        cxPotassioIdeal.setBounds(300, 266, 150, 30);
 
         rtCalcio.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rtCalcio.setForeground(new java.awt.Color(0, 0, 0));
         rtCalcio.setText("Cálcio");
         getContentPane().add(rtCalcio);
-        rtCalcio.setBounds(120, 245, 51, 25);
+        rtCalcio.setBounds(120, 314, 51, 25);
 
         rtUnidadeCalcio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         rtUnidadeCalcio.setForeground(new java.awt.Color(0, 0, 0));
         rtUnidadeCalcio.setText("(cmol)");
         getContentPane().add(rtUnidadeCalcio);
-        rtUnidadeCalcio.setBounds(209, 249, 37, 20);
-
-        rtCalcioSolo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rtCalcioSolo.setForeground(new java.awt.Color(0, 0, 0));
-        rtCalcioSolo.setText("No solo:");
-        getContentPane().add(rtCalcioSolo);
-        rtCalcioSolo.setBounds(120, 281, 50, 20);
-
-        cxCalcioSolo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cxCalcioSolo.setForeground(new java.awt.Color(0, 0, 0));
-        cxCalcioSolo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        getContentPane().add(cxCalcioSolo);
-        cxCalcioSolo.setBounds(205, 276, 150, 30);
-
-        rtCalcioIdeal.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rtCalcioIdeal.setForeground(new java.awt.Color(0, 0, 0));
-        rtCalcioIdeal.setText("Ideal:");
-        getContentPane().add(rtCalcioIdeal);
-        rtCalcioIdeal.setBounds(373, 281, 32, 20);
+        rtUnidadeCalcio.setBounds(209, 318, 37, 20);
 
         cxCalcioIdeal.setEditable(false);
         cxCalcioIdeal.setBackground(new java.awt.Color(153, 153, 153));
@@ -238,51 +124,19 @@ public class ValoresIdeaisGUI extends javax.swing.JFrame {
         cxCalcioIdeal.setForeground(new java.awt.Color(0, 0, 0));
         cxCalcioIdeal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(cxCalcioIdeal);
-        cxCalcioIdeal.setBounds(423, 276, 150, 30);
-
-        rtCalcioCorrecao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rtCalcioCorrecao.setForeground(new java.awt.Color(0, 0, 0));
-        rtCalcioCorrecao.setText("Após correções:");
-        getContentPane().add(rtCalcioCorrecao);
-        rtCalcioCorrecao.setBounds(591, 281, 96, 20);
-
-        cxCalcioCorrecao.setEditable(false);
-        cxCalcioCorrecao.setBackground(new java.awt.Color(153, 153, 153));
-        cxCalcioCorrecao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cxCalcioCorrecao.setForeground(new java.awt.Color(0, 0, 0));
-        cxCalcioCorrecao.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        getContentPane().add(cxCalcioCorrecao);
-        cxCalcioCorrecao.setBounds(705, 276, 150, 30);
+        cxCalcioIdeal.setBounds(300, 314, 150, 30);
 
         rtMagnesio.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rtMagnesio.setForeground(new java.awt.Color(0, 0, 0));
         rtMagnesio.setText("Magnésio");
         getContentPane().add(rtMagnesio);
-        rtMagnesio.setBounds(120, 324, 83, 25);
+        rtMagnesio.setBounds(120, 362, 83, 25);
 
         rtUnidadeMagnesio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         rtUnidadeMagnesio.setForeground(new java.awt.Color(0, 0, 0));
         rtUnidadeMagnesio.setText("(cmol)");
         getContentPane().add(rtUnidadeMagnesio);
-        rtUnidadeMagnesio.setBounds(209, 328, 37, 20);
-
-        rtMagnesioSolo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rtMagnesioSolo.setForeground(new java.awt.Color(0, 0, 0));
-        rtMagnesioSolo.setText("No solo:");
-        getContentPane().add(rtMagnesioSolo);
-        rtMagnesioSolo.setBounds(120, 360, 50, 20);
-
-        cxMagnesioSolo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cxMagnesioSolo.setForeground(new java.awt.Color(0, 0, 0));
-        cxMagnesioSolo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        getContentPane().add(cxMagnesioSolo);
-        cxMagnesioSolo.setBounds(205, 355, 150, 30);
-
-        rtMagnesioIdeal.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rtMagnesioIdeal.setForeground(new java.awt.Color(0, 0, 0));
-        rtMagnesioIdeal.setText("Ideal:");
-        getContentPane().add(rtMagnesioIdeal);
-        rtMagnesioIdeal.setBounds(373, 360, 32, 20);
+        rtUnidadeMagnesio.setBounds(209, 366, 37, 20);
 
         cxMagnesioIdeal.setEditable(false);
         cxMagnesioIdeal.setBackground(new java.awt.Color(153, 153, 153));
@@ -290,51 +144,19 @@ public class ValoresIdeaisGUI extends javax.swing.JFrame {
         cxMagnesioIdeal.setForeground(new java.awt.Color(0, 0, 0));
         cxMagnesioIdeal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(cxMagnesioIdeal);
-        cxMagnesioIdeal.setBounds(423, 355, 150, 30);
-
-        rtMagnesioCorrecao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rtMagnesioCorrecao.setForeground(new java.awt.Color(0, 0, 0));
-        rtMagnesioCorrecao.setText("Após correções:");
-        getContentPane().add(rtMagnesioCorrecao);
-        rtMagnesioCorrecao.setBounds(591, 360, 96, 20);
-
-        cxMagnesioCorrecao.setEditable(false);
-        cxMagnesioCorrecao.setBackground(new java.awt.Color(153, 153, 153));
-        cxMagnesioCorrecao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cxMagnesioCorrecao.setForeground(new java.awt.Color(0, 0, 0));
-        cxMagnesioCorrecao.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        getContentPane().add(cxMagnesioCorrecao);
-        cxMagnesioCorrecao.setBounds(705, 355, 150, 30);
+        cxMagnesioIdeal.setBounds(300, 362, 150, 30);
 
         rtEnxofre.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rtEnxofre.setForeground(new java.awt.Color(0, 0, 0));
         rtEnxofre.setText("Enxofre");
         getContentPane().add(rtEnxofre);
-        rtEnxofre.setBounds(120, 403, 66, 25);
+        rtEnxofre.setBounds(120, 414, 66, 25);
 
         rtUnidadeEnxofre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         rtUnidadeEnxofre.setForeground(new java.awt.Color(0, 0, 0));
         rtUnidadeEnxofre.setText("(mg.dm³)");
         getContentPane().add(rtUnidadeEnxofre);
-        rtUnidadeEnxofre.setBounds(205, 407, 56, 20);
-
-        rtEnxofreSolo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rtEnxofreSolo.setForeground(new java.awt.Color(0, 0, 0));
-        rtEnxofreSolo.setText("No solo:");
-        getContentPane().add(rtEnxofreSolo);
-        rtEnxofreSolo.setBounds(120, 439, 50, 20);
-
-        cxEnxofreSolo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cxEnxofreSolo.setForeground(new java.awt.Color(0, 0, 0));
-        cxEnxofreSolo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        getContentPane().add(cxEnxofreSolo);
-        cxEnxofreSolo.setBounds(205, 434, 150, 30);
-
-        rtEnxofreIdeal.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rtEnxofreIdeal.setForeground(new java.awt.Color(0, 0, 0));
-        rtEnxofreIdeal.setText("Ideal:");
-        getContentPane().add(rtEnxofreIdeal);
-        rtEnxofreIdeal.setBounds(373, 439, 32, 20);
+        rtUnidadeEnxofre.setBounds(205, 418, 56, 20);
 
         cxEnxofreIdeal.setEditable(false);
         cxEnxofreIdeal.setBackground(new java.awt.Color(153, 153, 153));
@@ -342,45 +164,13 @@ public class ValoresIdeaisGUI extends javax.swing.JFrame {
         cxEnxofreIdeal.setForeground(new java.awt.Color(0, 0, 0));
         cxEnxofreIdeal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(cxEnxofreIdeal);
-        cxEnxofreIdeal.setBounds(423, 434, 150, 30);
-
-        rtEnxofreCorrecao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rtEnxofreCorrecao.setForeground(new java.awt.Color(0, 0, 0));
-        rtEnxofreCorrecao.setText("Após correções:");
-        getContentPane().add(rtEnxofreCorrecao);
-        rtEnxofreCorrecao.setBounds(591, 439, 96, 20);
-
-        cxEnxofreCorrecao.setEditable(false);
-        cxEnxofreCorrecao.setBackground(new java.awt.Color(153, 153, 153));
-        cxEnxofreCorrecao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cxEnxofreCorrecao.setForeground(new java.awt.Color(0, 0, 0));
-        cxEnxofreCorrecao.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        getContentPane().add(cxEnxofreCorrecao);
-        cxEnxofreCorrecao.setBounds(705, 434, 150, 30);
+        cxEnxofreIdeal.setBounds(300, 414, 150, 30);
 
         rtAluminio.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rtAluminio.setForeground(new java.awt.Color(0, 0, 0));
         rtAluminio.setText("Alumínio");
         getContentPane().add(rtAluminio);
-        rtAluminio.setBounds(120, 482, 77, 25);
-
-        rtAluminioSolo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rtAluminioSolo.setForeground(new java.awt.Color(0, 0, 0));
-        rtAluminioSolo.setText("No solo:");
-        getContentPane().add(rtAluminioSolo);
-        rtAluminioSolo.setBounds(120, 518, 50, 20);
-
-        cxAluminioSolo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cxAluminioSolo.setForeground(new java.awt.Color(0, 0, 0));
-        cxAluminioSolo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        getContentPane().add(cxAluminioSolo);
-        cxAluminioSolo.setBounds(205, 513, 150, 30);
-
-        rtAluminioIdeal.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rtAluminioIdeal.setForeground(new java.awt.Color(0, 0, 0));
-        rtAluminioIdeal.setText("Ideal:");
-        getContentPane().add(rtAluminioIdeal);
-        rtAluminioIdeal.setBounds(373, 518, 32, 20);
+        rtAluminio.setBounds(120, 462, 77, 25);
 
         cxAluminioIdeal.setEditable(false);
         cxAluminioIdeal.setBackground(new java.awt.Color(153, 153, 153));
@@ -388,45 +178,13 @@ public class ValoresIdeaisGUI extends javax.swing.JFrame {
         cxAluminioIdeal.setForeground(new java.awt.Color(0, 0, 0));
         cxAluminioIdeal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(cxAluminioIdeal);
-        cxAluminioIdeal.setBounds(423, 513, 150, 30);
-
-        rtAluminioCorrecao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rtAluminioCorrecao.setForeground(new java.awt.Color(0, 0, 0));
-        rtAluminioCorrecao.setText("Após correções:");
-        getContentPane().add(rtAluminioCorrecao);
-        rtAluminioCorrecao.setBounds(591, 518, 96, 20);
-
-        cxAluminioCorrecao.setEditable(false);
-        cxAluminioCorrecao.setBackground(new java.awt.Color(153, 153, 153));
-        cxAluminioCorrecao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cxAluminioCorrecao.setForeground(new java.awt.Color(0, 0, 0));
-        cxAluminioCorrecao.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        getContentPane().add(cxAluminioCorrecao);
-        cxAluminioCorrecao.setBounds(705, 513, 150, 30);
+        cxAluminioIdeal.setBounds(300, 462, 150, 30);
 
         rtHAL.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rtHAL.setForeground(new java.awt.Color(0, 0, 0));
         rtHAL.setText("H + AL");
         getContentPane().add(rtHAL);
-        rtHAL.setBounds(120, 561, 59, 25);
-
-        rtHALSolo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rtHALSolo.setForeground(new java.awt.Color(0, 0, 0));
-        rtHALSolo.setText("No solo:");
-        getContentPane().add(rtHALSolo);
-        rtHALSolo.setBounds(120, 597, 50, 20);
-
-        cxHALSolo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cxHALSolo.setForeground(new java.awt.Color(0, 0, 0));
-        cxHALSolo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        getContentPane().add(cxHALSolo);
-        cxHALSolo.setBounds(205, 592, 150, 30);
-
-        rtHALIdeal.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rtHALIdeal.setForeground(new java.awt.Color(0, 0, 0));
-        rtHALIdeal.setText("Ideal:");
-        getContentPane().add(rtHALIdeal);
-        rtHALIdeal.setBounds(373, 597, 32, 20);
+        rtHAL.setBounds(120, 510, 59, 25);
 
         cxHALIdeal.setEditable(false);
         cxHALIdeal.setBackground(new java.awt.Color(153, 153, 153));
@@ -434,40 +192,33 @@ public class ValoresIdeaisGUI extends javax.swing.JFrame {
         cxHALIdeal.setForeground(new java.awt.Color(0, 0, 0));
         cxHALIdeal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(cxHALIdeal);
-        cxHALIdeal.setBounds(423, 592, 150, 30);
+        cxHALIdeal.setBounds(300, 510, 150, 30);
 
-        rtHALCorrecao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rtHALCorrecao.setForeground(new java.awt.Color(0, 0, 0));
-        rtHALCorrecao.setText("Após correções:");
-        getContentPane().add(rtHALCorrecao);
-        rtHALCorrecao.setBounds(591, 597, 96, 20);
-
-        cxHALCorrecao.setEditable(false);
-        cxHALCorrecao.setBackground(new java.awt.Color(153, 153, 153));
-        cxHALCorrecao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cxHALCorrecao.setForeground(new java.awt.Color(0, 0, 0));
-        cxHALCorrecao.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        getContentPane().add(cxHALCorrecao);
-        cxHALCorrecao.setBounds(705, 592, 150, 30);
-
-        btEnviar.setBackground(new java.awt.Color(255, 255, 255));
-        btEnviar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btEnviar.setForeground(new java.awt.Color(0, 0, 0));
-        btEnviar.setText("Enviar");
-        btEnviar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btEnviar.setPreferredSize(new java.awt.Dimension(84, 42));
-        btEnviar.addActionListener(new java.awt.event.ActionListener() {
+        btConsultar.setBackground(new java.awt.Color(255, 255, 255));
+        btConsultar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btConsultar.setForeground(new java.awt.Color(0, 0, 0));
+        btConsultar.setText("Consultar");
+        btConsultar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btConsultar.setPreferredSize(new java.awt.Dimension(84, 42));
+        btConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btEnviarActionPerformed(evt);
+                btConsultarActionPerformed(evt);
             }
         });
-        btEnviar.addKeyListener(new java.awt.event.KeyAdapter() {
+        btConsultar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                btEnviarKeyPressed(evt);
+                btConsultarKeyPressed(evt);
             }
         });
-        getContentPane().add(btEnviar);
-        btEnviar.setBounds(423, 640, 160, 50);
+        getContentPane().add(btConsultar);
+        btConsultar.setBounds(600, 120, 150, 42);
+
+        cbTipoSolo.setBackground(new java.awt.Color(255, 255, 255));
+        cbTipoSolo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cbTipoSolo.setForeground(new java.awt.Color(0, 0, 0));
+        cbTipoSolo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Selecione um item abaixo>", "Solo Argiloso", "Solo Textura Média" }));
+        getContentPane().add(cbTipoSolo);
+        cbTipoSolo.setBounds(120, 120, 330, 42);
 
         rtFundo.setIcon(new javax.swing.ImageIcon("C:\\Users\\gabri\\OneDrive\\Documentos\\UTFPR\\2021 - semestre 2\\Arquitetura de Software\\GUIsoilcorrection\\GUIsoilcorrection\\src\\main\\java\\gui\\imagens\\fundo3.jpg")); // NOI18N
         getContentPane().add(rtFundo);
@@ -477,21 +228,13 @@ public class ValoresIdeaisGUI extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnviarActionPerformed
-        String fosforo = cxFosforoSolo.getText();
-        String potassio = cxPotassioSolo.getText();
-        String calcio = cxCalcioSolo.getText();
-        String magnesio = cxMagnesioSolo.getText();
-        String enxofre = cxEnxofreSolo.getText();
-        String aluminio = cxAluminioSolo.getText();
-        String hal = cxHALSolo.getText();
-        
-        enviar(fosforo, potassio, calcio, magnesio, enxofre, aluminio, hal);
-    }//GEN-LAST:event_btEnviarActionPerformed
+    private void btConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultarActionPerformed
+        consultar();
+    }//GEN-LAST:event_btConsultarActionPerformed
 
-    private void btEnviarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btEnviarKeyPressed
+    private void btConsultarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btConsultarKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btEnviarKeyPressed
+    }//GEN-LAST:event_btConsultarKeyPressed
 
     /**
      * @param args the command line arguments
@@ -530,57 +273,23 @@ public class ValoresIdeaisGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btEnviar;
-    private javax.swing.JTextField cxAluminioCorrecao;
+    private javax.swing.JButton btConsultar;
+    private javax.swing.JComboBox<String> cbTipoSolo;
     private javax.swing.JTextField cxAluminioIdeal;
-    private javax.swing.JTextField cxAluminioSolo;
-    private javax.swing.JTextField cxCalcioCorrecao;
     private javax.swing.JTextField cxCalcioIdeal;
-    private javax.swing.JTextField cxCalcioSolo;
-    private javax.swing.JTextField cxEnxofreCorrecao;
     private javax.swing.JTextField cxEnxofreIdeal;
-    private javax.swing.JTextField cxEnxofreSolo;
-    private javax.swing.JTextField cxFosforoCorrecao;
     private javax.swing.JTextField cxFosforoIdeal;
-    private javax.swing.JTextField cxFosforoSolo;
-    private javax.swing.JTextField cxHALCorrecao;
     private javax.swing.JTextField cxHALIdeal;
-    private javax.swing.JTextField cxHALSolo;
-    private javax.swing.JTextField cxMagnesioCorrecao;
     private javax.swing.JTextField cxMagnesioIdeal;
-    private javax.swing.JTextField cxMagnesioSolo;
-    private javax.swing.JTextField cxPotassioCorrecao;
     private javax.swing.JTextField cxPotassioIdeal;
-    private javax.swing.JTextField cxPotassioSolo;
     private javax.swing.JLabel rtAluminio;
-    private javax.swing.JLabel rtAluminioCorrecao;
-    private javax.swing.JLabel rtAluminioIdeal;
-    private javax.swing.JLabel rtAluminioSolo;
     private javax.swing.JLabel rtCalcio;
-    private javax.swing.JLabel rtCalcioCorrecao;
-    private javax.swing.JLabel rtCalcioIdeal;
-    private javax.swing.JLabel rtCalcioSolo;
     private javax.swing.JLabel rtEnxofre;
-    private javax.swing.JLabel rtEnxofreCorrecao;
-    private javax.swing.JLabel rtEnxofreIdeal;
-    private javax.swing.JLabel rtEnxofreSolo;
     private javax.swing.JLabel rtFosforo;
-    private javax.swing.JLabel rtFosforoCorrecao;
-    private javax.swing.JLabel rtFosforoIdeal;
-    private javax.swing.JLabel rtFosforoSolo;
     private javax.swing.JLabel rtFundo;
     private javax.swing.JLabel rtHAL;
-    private javax.swing.JLabel rtHALCorrecao;
-    private javax.swing.JLabel rtHALIdeal;
-    private javax.swing.JLabel rtHALSolo;
     private javax.swing.JLabel rtMagnesio;
-    private javax.swing.JLabel rtMagnesioCorrecao;
-    private javax.swing.JLabel rtMagnesioIdeal;
-    private javax.swing.JLabel rtMagnesioSolo;
     private javax.swing.JLabel rtPotassio;
-    private javax.swing.JLabel rtPotassioCorrecao;
-    private javax.swing.JLabel rtPotassioIdeal;
-    private javax.swing.JLabel rtPotassioSolo;
     private javax.swing.JLabel rtTitulo;
     private javax.swing.JLabel rtUnidadeCalcio;
     private javax.swing.JLabel rtUnidadeEnxofre;
@@ -589,44 +298,29 @@ public class ValoresIdeaisGUI extends javax.swing.JFrame {
     private javax.swing.JLabel rtUnidadePotassio;
     // End of variables declaration//GEN-END:variables
 
-    public String enviar(String fosforo, String potassio, String calcio, String magnesio, String enxofre, String aluminio, String hal) {
-        cxFosforoSolo.setText(fosforo);
-        cxPotassioSolo.setText(potassio);
-        cxCalcioSolo.setText(calcio);
-        cxMagnesioSolo.setText(magnesio);
-        cxEnxofreSolo.setText(enxofre);
-        cxAluminioSolo.setText(aluminio);
-        cxHALSolo.setText(hal);
-        
-        int fos = Integer.parseInt(fosforo) * 1; 
-        int pot = Integer.parseInt(potassio) * 2;
-        int cal = Integer.parseInt(calcio) * 3;
-        int mag = Integer.parseInt(magnesio) * 4;
-        int enx = Integer.parseInt(enxofre) * 5;
-        int alu = Integer.parseInt(aluminio) * 6;
-        int h = Integer.parseInt(hal) * 7;
-        
-        cxFosforoIdeal.setText(Integer.toString(fos));
-        cxFosforoCorrecao.setText(Integer.toString(fos));
-        cxPotassioIdeal.setText(Integer.toString(pot));
-        cxPotassioCorrecao.setText(Integer.toString(pot));
-        cxCalcioIdeal.setText(Integer.toString(cal));
-        cxCalcioCorrecao.setText(Integer.toString(cal));
-        cxMagnesioIdeal.setText(Integer.toString(mag));
-        cxMagnesioCorrecao.setText(Integer.toString(mag));
-        cxEnxofreIdeal.setText(Integer.toString(enx));
-        cxEnxofreCorrecao.setText(Integer.toString(enx));
-        cxAluminioIdeal.setText(Integer.toString(alu));
-        cxAluminioCorrecao.setText(Integer.toString(alu));
-        cxHALIdeal.setText(Integer.toString(h));
-        cxHALCorrecao.setText(Integer.toString(h));
-        
-        return cxFosforoIdeal.getText()+" "+cxFosforoCorrecao.getText()+" "+
-                cxPotassioIdeal.getText()+" "+cxPotassioCorrecao.getText()+" "+
-                cxCalcioIdeal.getText()+" "+cxCalcioCorrecao.getText()+" "+
-                cxMagnesioIdeal.getText()+" "+cxMagnesioCorrecao.getText()+" "+
-                cxEnxofreIdeal.getText()+" "+cxEnxofreCorrecao.getText()+" "+
-                cxAluminioIdeal.getText()+" "+cxAluminioCorrecao.getText()+" "+
-                cxHALIdeal.getText()+" "+cxHALCorrecao.getText();
+    public void consultar(){
+        String tipoSolo = cbTipoSolo.getSelectedItem().toString();
+        switch(tipoSolo){
+            case "Solo Argiloso":
+                cxFosforoIdeal.setText(Double.toString(TexturaSolo.ARGILOSO.calculaValorIdeal().fosforo()));
+                cxPotassioIdeal.setText(Double.toString(TexturaSolo.ARGILOSO.calculaValorIdeal().potassio()));
+                cxCalcioIdeal.setText(Double.toString(TexturaSolo.ARGILOSO.calculaValorIdeal().calcio()));
+                cxMagnesioIdeal.setText(Double.toString(TexturaSolo.ARGILOSO.calculaValorIdeal().magnesio()));
+                cxEnxofreIdeal.setText(Double.toString(TexturaSolo.ARGILOSO.calculaValorIdeal().enxofre()));
+                cxAluminioIdeal.setText(Double.toString(TexturaSolo.ARGILOSO.calculaValorIdeal().aluminio()));
+                cxHALIdeal.setText(Double.toString(TexturaSolo.ARGILOSO.calculaValorIdeal().aluminioHidrogenio()));
+                break;
+            case "Solo Textura Média":
+                cxFosforoIdeal.setText(Double.toString(TexturaSolo.TEXTURA_MEDIA.calculaValorIdeal().fosforo()));
+                cxPotassioIdeal.setText(Double.toString(TexturaSolo.TEXTURA_MEDIA.calculaValorIdeal().potassio()));
+                cxCalcioIdeal.setText(Double.toString(TexturaSolo.TEXTURA_MEDIA.calculaValorIdeal().calcio()));
+                cxMagnesioIdeal.setText(Double.toString(TexturaSolo.TEXTURA_MEDIA.calculaValorIdeal().magnesio()));
+                cxEnxofreIdeal.setText(Double.toString(TexturaSolo.TEXTURA_MEDIA.calculaValorIdeal().enxofre()));
+                cxAluminioIdeal.setText(Double.toString(TexturaSolo.TEXTURA_MEDIA.calculaValorIdeal().aluminio()));
+                cxHALIdeal.setText(Double.toString(TexturaSolo.TEXTURA_MEDIA.calculaValorIdeal().aluminioHidrogenio()));
+                break;
+            default:
+                break;
+        }
     }
 }
