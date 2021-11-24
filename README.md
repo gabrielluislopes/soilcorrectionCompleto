@@ -7,7 +7,7 @@ Tela principal
 ![image](https://user-images.githubusercontent.com/80367902/143326002-0cbc013d-1409-4c6f-a296-b7b971043867.png)
 
 A tela principal oferece a possibilidade de escolher entre as Correções disponíveis. 
-Para continuar vamos seguir com a escolha da Correção de Potássio.
+Para continuar vamos seguir com a escolha da Correção de Fósforo.
 
 Tela para correção de Fósforo
 
