@@ -31,7 +31,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btPotassio = new javax.swing.JButton();
         btValoresIdeais = new javax.swing.JButton();
         rtTitulo = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         rtFundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -102,20 +101,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().add(rtTitulo);
         rtTitulo.setBounds(312, 59, 400, 100);
 
-        jButton1.setBackground(new java.awt.Color(152, 197, 255));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Voltar");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.setPreferredSize(new java.awt.Dimension(84, 42));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(470, 640, 84, 42);
-
         rtFundo.setIcon(new javax.swing.ImageIcon("C:\\Users\\gabri\\OneDrive\\Documentos\\UTFPR\\2021 - semestre 2\\Arquitetura de Software\\GUIsoilcorrection\\GUIsoilcorrection\\src\\main\\java\\gui\\imagens\\fundo.jpg")); // NOI18N
         rtFundo.setPreferredSize(new java.awt.Dimension(1024, 768));
         getContentPane().add(rtFundo);
@@ -144,12 +129,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         ValoresIdeaisGUI vi = new ValoresIdeaisGUI();
         vi.setVisible(true);
     }//GEN-LAST:event_btValoresIdeaisActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        InformacoesUsuario ui = new InformacoesUsuario();
-        ui.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,7 +170,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btFosforo;
     private javax.swing.JButton btPotassio;
     private javax.swing.JButton btValoresIdeais;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel rtFundo;
     private javax.swing.JLabel rtTitulo;
     // End of variables declaration//GEN-END:variables
