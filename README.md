@@ -21,4 +21,12 @@ Ao preencher as informações a tela ficará assim:
 Ao pressionar o botão enviar será realizado os cálculos desejados. 
 ![image](https://user-images.githubusercontent.com/80367902/143311759-2348afe2-2ac9-4f97-b05f-f4e8cda13e55.png)
 
-As telas para outras correções tem o mesmo principio de funcionamento. 
+As telas para outras correções tem o mesmo principio de funcionamento.
+
+Temos também a tela de Valores Ideais.
+
+![image](https://user-images.githubusercontent.com/80367902/143316715-468b2673-12f6-4453-bab9-5984c7321272.png)
+
+Nesta tela o usuário escolhe a opção de solo que ele deseja consultar os valores ideais, e então clica no botão consultar, retornando os valores nos campos de texto.
+![image](https://user-images.githubusercontent.com/80367902/143316823-86b591be-00fa-406f-a078-fc35911dd5bf.png)
+
