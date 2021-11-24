@@ -94,13 +94,13 @@ public class CorrecaoPotassioGUI extends javax.swing.JFrame {
         cxParticipacaoAtual.setForeground(new java.awt.Color(0, 0, 0));
         cxParticipacaoAtual.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(cxParticipacaoAtual);
-        cxParticipacaoAtual.setBounds(609, 220, 150, 30);
+        cxParticipacaoAtual.setBounds(609, 220, 200, 30);
 
         rtUnidadeParticipacaoAtual.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtUnidadeParticipacaoAtual.setForeground(new java.awt.Color(0, 0, 0));
         rtUnidadeParticipacaoAtual.setText("%");
         getContentPane().add(rtUnidadeParticipacaoAtual);
-        rtUnidadeParticipacaoAtual.setBounds(777, 223, 15, 25);
+        rtUnidadeParticipacaoAtual.setBounds(827, 223, 15, 25);
 
         rtParticipacaoDesejada.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtParticipacaoDesejada.setForeground(new java.awt.Color(0, 0, 0));
@@ -112,13 +112,13 @@ public class CorrecaoPotassioGUI extends javax.swing.JFrame {
         cxParticipacaoDesejada.setForeground(new java.awt.Color(0, 0, 0));
         cxParticipacaoDesejada.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(cxParticipacaoDesejada);
-        cxParticipacaoDesejada.setBounds(609, 268, 150, 30);
+        cxParticipacaoDesejada.setBounds(609, 268, 200, 30);
 
         rtUnidadeParticipacaodesejada.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtUnidadeParticipacaodesejada.setForeground(new java.awt.Color(0, 0, 0));
         rtUnidadeParticipacaodesejada.setText("%");
         getContentPane().add(rtUnidadeParticipacaodesejada);
-        rtUnidadeParticipacaodesejada.setBounds(777, 271, 15, 25);
+        rtUnidadeParticipacaodesejada.setBounds(827, 271, 15, 25);
 
         rtParticipacaoCorrecao.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtParticipacaoCorrecao.setForeground(new java.awt.Color(0, 0, 0));
@@ -132,13 +132,13 @@ public class CorrecaoPotassioGUI extends javax.swing.JFrame {
         cxParticipacaoCorrecao.setForeground(new java.awt.Color(0, 0, 0));
         cxParticipacaoCorrecao.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(cxParticipacaoCorrecao);
-        cxParticipacaoCorrecao.setBounds(609, 316, 150, 30);
+        cxParticipacaoCorrecao.setBounds(609, 316, 200, 30);
 
         rtUnidadeParticipacaoCorrecao.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtUnidadeParticipacaoCorrecao.setForeground(new java.awt.Color(0, 0, 0));
         rtUnidadeParticipacaoCorrecao.setText("%");
         getContentPane().add(rtUnidadeParticipacaoCorrecao);
-        rtUnidadeParticipacaoCorrecao.setBounds(777, 319, 15, 25);
+        rtUnidadeParticipacaoCorrecao.setBounds(827, 319, 15, 25);
 
         rtParticipacaoIdeal.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtParticipacaoIdeal.setForeground(new java.awt.Color(0, 0, 0));
@@ -153,13 +153,13 @@ public class CorrecaoPotassioGUI extends javax.swing.JFrame {
         cxParticipacaoIdeal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         cxParticipacaoIdeal.setText("3,0");
         getContentPane().add(cxParticipacaoIdeal);
-        cxParticipacaoIdeal.setBounds(609, 364, 150, 30);
+        cxParticipacaoIdeal.setBounds(609, 364, 200, 30);
 
         rtUnidadeParticipacaoIdeal.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtUnidadeParticipacaoIdeal.setForeground(new java.awt.Color(0, 0, 0));
         rtUnidadeParticipacaoIdeal.setText("%");
         getContentPane().add(rtUnidadeParticipacaoIdeal);
-        rtUnidadeParticipacaoIdeal.setBounds(777, 367, 15, 25);
+        rtUnidadeParticipacaoIdeal.setBounds(827, 367, 15, 25);
 
         rtFontePotassio.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtFontePotassio.setForeground(new java.awt.Color(0, 0, 0));
@@ -185,13 +185,13 @@ public class CorrecaoPotassioGUI extends javax.swing.JFrame {
         cxQuantidadeAplicar.setForeground(new java.awt.Color(0, 0, 0));
         cxQuantidadeAplicar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(cxQuantidadeAplicar);
-        cxQuantidadeAplicar.setBounds(609, 460, 150, 30);
+        cxQuantidadeAplicar.setBounds(609, 460, 200, 30);
 
         rtUnidadeQuantidadeAplicar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtUnidadeQuantidadeAplicar.setForeground(new java.awt.Color(0, 0, 0));
         rtUnidadeQuantidadeAplicar.setText("kg/hectare");
         getContentPane().add(rtUnidadeQuantidadeAplicar);
-        rtUnidadeQuantidadeAplicar.setBounds(780, 460, 84, 25);
+        rtUnidadeQuantidadeAplicar.setBounds(827, 460, 84, 25);
 
         rtCusto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtCusto.setForeground(new java.awt.Color(0, 0, 0));
@@ -205,7 +205,7 @@ public class CorrecaoPotassioGUI extends javax.swing.JFrame {
         cxCusto.setForeground(new java.awt.Color(0, 0, 0));
         cxCusto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(cxCusto);
-        cxCusto.setBounds(609, 508, 150, 30);
+        cxCusto.setBounds(609, 508, 200, 30);
 
         btEnviar.setBackground(new java.awt.Color(255, 255, 255));
         btEnviar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -382,9 +382,11 @@ public class CorrecaoPotassioGUI extends javax.swing.JFrame {
                                         presenteCTC/100, 
                                         Double.parseDouble(cxParticipacaoDesejada.getText().replace(",", "."))/100);
         if(necessidadeCorrecao<=0){
-            cxParticipacaoCorrecao.setText("Não é necessário correção");
-            cxQuantidadeAplicar.setText("Não é necessário correção");
-            cxCusto.setText("Não é necessário correção");
+            BigDecimal bd1 = new BigDecimal(presenteCTC).setScale(1, RoundingMode.HALF_EVEN);
+            cxParticipacaoAtual.setText(Double.toString(bd1.doubleValue()));
+            cxParticipacaoCorrecao.setText("Não necessário correção");
+            cxQuantidadeAplicar.setText("Não necessário correção");
+            cxCusto.setText("Não necessário correção");
         }else{
             double necessidadeMgDm3 = new ConverteCMolcDm3EmMgDm3().converte(necessidadeCorrecao);
             double necessidadeKgHa = new ConverteMgDm3EmKgHa().converte(necessidadeMgDm3);
