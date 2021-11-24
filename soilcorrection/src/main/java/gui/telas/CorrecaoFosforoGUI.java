@@ -9,8 +9,9 @@ import converte.ConverteMgDm3EmKgHa;
 import correcao_fonte_nutrientes.NutrienteAdicional;
 import correcao_fonte_nutrientes.fosforo.CorrecaoFosforo;
 import correcao_fonte_nutrientes.fosforo.FonteFosforo;
-import static java.awt.event.KeyEvent.VK_ENTER;
 import java.text.DecimalFormat;
+import java.util.Iterator;
+import java.util.Set;
 
 /**
  *
@@ -328,12 +329,23 @@ public class CorrecaoFosforoGUI extends javax.swing.JFrame {
         
         double qtdAplicar;
         double custo;
+        //Set<NutrienteAdicional> nutrientesAdicionais;
         switch (cbFonteFosforo.getSelectedItem().toString()){
             case "Superfosfato Simples":
                 qtdAplicar = new CorrecaoFosforo().calculaQuantidadeAplicar(
                         necessidadeFosforo, 
                         FonteFosforo.SUPERFOSFATO_SIMPLES);
                 custo = new CorrecaoFosforo().calculaCusto(Double.parseDouble(cxValorFonte.getText().replace(",", ".")), qtdAplicar);
+                Set<NutrienteAdicional> nutrientesAdicionais = new CorrecaoFosforo()
+                                                                .getNutrientesAdicionais(
+                                                                        qtdAplicar, 
+                                                                        FonteFosforo.SUPERFOSFATO_SIMPLES);
+                Iterator it = nutrientesAdicionais.iterator();
+                while(it.hasNext()){
+                    var teste = it.next();
+                    System.out.println(teste);
+                }
+                
                 break;
             case "Superfosfato Triplo":
                 qtdAplicar = new CorrecaoFosforo().calculaQuantidadeAplicar(
@@ -352,7 +364,6 @@ public class CorrecaoFosforoGUI extends javax.swing.JFrame {
                 custo = 0;
                 break;
         }
-        
         
         DecimalFormat f = new DecimalFormat("#.##");
         cxQuantidadeAplicada.setText(f.format(qtdAplicar));
