@@ -7,10 +7,13 @@ package gui.telas;
 import converte.ConverteCMolcDm3EmMgDm3;
 import converte.ConverteKgHaEmK2O;
 import converte.ConverteMgDm3EmKgHa;
+import correcao_fonte_nutrientes.NutrienteAdicional;
 import correcao_fonte_nutrientes.potassio.CorrecaoPotassio;
 import correcao_fonte_nutrientes.potassio.FontePotassio;
+import ctc.EquilibrioCorrecaoCTC;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Set;
 
 /**
  *
@@ -41,9 +44,6 @@ public class CorrecaoPotassioGUI extends javax.swing.JFrame {
         rtParticipacaoDesejada = new javax.swing.JLabel();
         cxParticipacaoDesejada = new javax.swing.JTextField();
         rtUnidadeParticipacaodesejada = new javax.swing.JLabel();
-        rtParticipacaoCorrecao = new javax.swing.JLabel();
-        cxParticipacaoCorrecao = new javax.swing.JTextField();
-        rtUnidadeParticipacaoCorrecao = new javax.swing.JLabel();
         rtParticipacaoIdeal = new javax.swing.JLabel();
         cxParticipacaoIdeal = new javax.swing.JTextField();
         rtUnidadeParticipacaoIdeal = new javax.swing.JLabel();
@@ -66,6 +66,8 @@ public class CorrecaoPotassioGUI extends javax.swing.JFrame {
         rtCalcio = new javax.swing.JLabel();
         rtMagnesio = new javax.swing.JLabel();
         rtHAL = new javax.swing.JLabel();
+        rtCorrecao = new javax.swing.JLabel();
+        cxCorrecaoAdicional = new javax.swing.JTextField();
         rtFundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -120,31 +122,11 @@ public class CorrecaoPotassioGUI extends javax.swing.JFrame {
         getContentPane().add(rtUnidadeParticipacaodesejada);
         rtUnidadeParticipacaodesejada.setBounds(827, 271, 15, 25);
 
-        rtParticipacaoCorrecao.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        rtParticipacaoCorrecao.setForeground(new java.awt.Color(0, 0, 0));
-        rtParticipacaoCorrecao.setText("Participação do POTÁSSIO na CTC, após correção: ");
-        getContentPane().add(rtParticipacaoCorrecao);
-        rtParticipacaoCorrecao.setBounds(190, 319, 401, 25);
-
-        cxParticipacaoCorrecao.setEditable(false);
-        cxParticipacaoCorrecao.setBackground(new java.awt.Color(204, 204, 204));
-        cxParticipacaoCorrecao.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        cxParticipacaoCorrecao.setForeground(new java.awt.Color(0, 0, 0));
-        cxParticipacaoCorrecao.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        getContentPane().add(cxParticipacaoCorrecao);
-        cxParticipacaoCorrecao.setBounds(609, 316, 200, 30);
-
-        rtUnidadeParticipacaoCorrecao.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        rtUnidadeParticipacaoCorrecao.setForeground(new java.awt.Color(0, 0, 0));
-        rtUnidadeParticipacaoCorrecao.setText("%");
-        getContentPane().add(rtUnidadeParticipacaoCorrecao);
-        rtUnidadeParticipacaoCorrecao.setBounds(827, 319, 15, 25);
-
         rtParticipacaoIdeal.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtParticipacaoIdeal.setForeground(new java.awt.Color(0, 0, 0));
         rtParticipacaoIdeal.setText("Participação ideal do POTÁSSIO na CTC: ");
         getContentPane().add(rtParticipacaoIdeal);
-        rtParticipacaoIdeal.setBounds(190, 367, 322, 25);
+        rtParticipacaoIdeal.setBounds(190, 319, 322, 25);
 
         cxParticipacaoIdeal.setEditable(false);
         cxParticipacaoIdeal.setBackground(new java.awt.Color(204, 204, 204));
@@ -153,31 +135,31 @@ public class CorrecaoPotassioGUI extends javax.swing.JFrame {
         cxParticipacaoIdeal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         cxParticipacaoIdeal.setText("3,0");
         getContentPane().add(cxParticipacaoIdeal);
-        cxParticipacaoIdeal.setBounds(609, 364, 200, 30);
+        cxParticipacaoIdeal.setBounds(609, 316, 200, 30);
 
         rtUnidadeParticipacaoIdeal.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtUnidadeParticipacaoIdeal.setForeground(new java.awt.Color(0, 0, 0));
         rtUnidadeParticipacaoIdeal.setText("%");
         getContentPane().add(rtUnidadeParticipacaoIdeal);
-        rtUnidadeParticipacaoIdeal.setBounds(827, 367, 15, 25);
+        rtUnidadeParticipacaoIdeal.setBounds(827, 319, 15, 25);
 
         rtFontePotassio.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtFontePotassio.setForeground(new java.awt.Color(0, 0, 0));
         rtFontePotassio.setText("Fonte de POTÁSSIO a usar: ");
         getContentPane().add(rtFontePotassio);
-        rtFontePotassio.setBounds(190, 415, 220, 25);
+        rtFontePotassio.setBounds(190, 367, 220, 25);
 
         cbFontePotassio.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cbFontePotassio.setForeground(new java.awt.Color(0, 0, 0));
         cbFontePotassio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cloreto de Potássio", "Sulfato de Potássio", "Sulfato Potássio/Magnésio" }));
         getContentPane().add(cbFontePotassio);
-        cbFontePotassio.setBounds(509, 412, 250, 30);
+        cbFontePotassio.setBounds(509, 364, 250, 30);
 
         rtQuantidadeAplicar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtQuantidadeAplicar.setForeground(new java.awt.Color(0, 0, 0));
         rtQuantidadeAplicar.setText("Quantidade a aplicar:");
         getContentPane().add(rtQuantidadeAplicar);
-        rtQuantidadeAplicar.setBounds(190, 463, 167, 25);
+        rtQuantidadeAplicar.setBounds(190, 415, 167, 25);
 
         cxQuantidadeAplicar.setEditable(false);
         cxQuantidadeAplicar.setBackground(new java.awt.Color(204, 204, 204));
@@ -185,19 +167,19 @@ public class CorrecaoPotassioGUI extends javax.swing.JFrame {
         cxQuantidadeAplicar.setForeground(new java.awt.Color(0, 0, 0));
         cxQuantidadeAplicar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(cxQuantidadeAplicar);
-        cxQuantidadeAplicar.setBounds(609, 460, 200, 30);
+        cxQuantidadeAplicar.setBounds(609, 412, 200, 30);
 
         rtUnidadeQuantidadeAplicar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtUnidadeQuantidadeAplicar.setForeground(new java.awt.Color(0, 0, 0));
         rtUnidadeQuantidadeAplicar.setText("kg/hectare");
         getContentPane().add(rtUnidadeQuantidadeAplicar);
-        rtUnidadeQuantidadeAplicar.setBounds(827, 460, 84, 25);
+        rtUnidadeQuantidadeAplicar.setBounds(827, 415, 84, 25);
 
         rtCusto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtCusto.setForeground(new java.awt.Color(0, 0, 0));
         rtCusto.setText("Custo - R$/ha");
         getContentPane().add(rtCusto);
-        rtCusto.setBounds(190, 511, 110, 25);
+        rtCusto.setBounds(190, 463, 110, 25);
 
         cxCusto.setEditable(false);
         cxCusto.setBackground(new java.awt.Color(204, 204, 204));
@@ -205,7 +187,7 @@ public class CorrecaoPotassioGUI extends javax.swing.JFrame {
         cxCusto.setForeground(new java.awt.Color(0, 0, 0));
         cxCusto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(cxCusto);
-        cxCusto.setBounds(609, 508, 200, 30);
+        cxCusto.setBounds(609, 460, 200, 30);
 
         btEnviar.setBackground(new java.awt.Color(255, 255, 255));
         btEnviar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -250,13 +232,13 @@ public class CorrecaoPotassioGUI extends javax.swing.JFrame {
         rtValorFonte.setForeground(new java.awt.Color(0, 0, 0));
         rtValorFonte.setText("Valor/Ton (R$)");
         getContentPane().add(rtValorFonte);
-        rtValorFonte.setBounds(770, 420, 90, 20);
+        rtValorFonte.setBounds(770, 367, 90, 20);
 
         cxValorFonte.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cxValorFonte.setForeground(new java.awt.Color(0, 0, 0));
         cxValorFonte.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(cxValorFonte);
-        cxValorFonte.setBounds(870, 412, 120, 30);
+        cxValorFonte.setBounds(870, 364, 120, 30);
 
         rtPotassio.setForeground(new java.awt.Color(0, 0, 0));
         rtPotassio.setText("Potassio");
@@ -277,6 +259,19 @@ public class CorrecaoPotassioGUI extends javax.swing.JFrame {
         rtHAL.setText("H + Al");
         getContentPane().add(rtHAL);
         rtHAL.setBounds(710, 140, 75, 16);
+
+        rtCorrecao.setForeground(new java.awt.Color(0, 0, 0));
+        rtCorrecao.setText("Essa correção de POTÁSSIO, fornecerá também (kg/ha):");
+        getContentPane().add(rtCorrecao);
+        rtCorrecao.setBounds(190, 542, 320, 16);
+
+        cxCorrecaoAdicional.setEditable(false);
+        cxCorrecaoAdicional.setBackground(new java.awt.Color(204, 204, 204));
+        cxCorrecaoAdicional.setForeground(new java.awt.Color(0, 0, 0));
+        cxCorrecaoAdicional.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        cxCorrecaoAdicional.setPreferredSize(new java.awt.Dimension(70, 30));
+        getContentPane().add(cxCorrecaoAdicional);
+        cxCorrecaoAdicional.setBounds(510, 535, 300, 32);
 
         rtFundo.setIcon(new javax.swing.ImageIcon("C:\\Users\\gabri\\OneDrive\\Documentos\\UTFPR\\2021 - semestre 2\\Arquitetura de Software\\soilcorrectionCompleto\\soilcorrection\\src\\main\\java\\gui\\imagens\\background.png")); // NOI18N
         getContentPane().add(rtFundo);
@@ -330,17 +325,18 @@ public class CorrecaoPotassioGUI extends javax.swing.JFrame {
     private javax.swing.JButton btEnviar;
     private javax.swing.JComboBox<String> cbFontePotassio;
     private javax.swing.JTextField cxCalcioSolo;
+    private javax.swing.JTextField cxCorrecaoAdicional;
     private javax.swing.JTextField cxCusto;
     private javax.swing.JTextField cxHALSolo;
     private javax.swing.JTextField cxMagnesioSolo;
     private javax.swing.JTextField cxParticipacaoAtual;
-    private javax.swing.JTextField cxParticipacaoCorrecao;
     private javax.swing.JTextField cxParticipacaoDesejada;
     private javax.swing.JTextField cxParticipacaoIdeal;
     private javax.swing.JTextField cxPotassioSolo;
     private javax.swing.JTextField cxQuantidadeAplicar;
     private javax.swing.JTextField cxValorFonte;
     private javax.swing.JLabel rtCalcio;
+    private javax.swing.JLabel rtCorrecao;
     private javax.swing.JLabel rtCusto;
     private javax.swing.JLabel rtExplicacao;
     private javax.swing.JLabel rtFontePotassio;
@@ -348,14 +344,12 @@ public class CorrecaoPotassioGUI extends javax.swing.JFrame {
     private javax.swing.JLabel rtHAL;
     private javax.swing.JLabel rtMagnesio;
     private javax.swing.JLabel rtParticipacaoAtual;
-    private javax.swing.JLabel rtParticipacaoCorrecao;
     private javax.swing.JLabel rtParticipacaoDesejada;
     private javax.swing.JLabel rtParticipacaoIdeal;
     private javax.swing.JLabel rtPotassio;
     private javax.swing.JLabel rtQuantidadeAplicar;
     private javax.swing.JLabel rtTitulo;
     private javax.swing.JLabel rtUnidadeParticipacaoAtual;
-    private javax.swing.JLabel rtUnidadeParticipacaoCorrecao;
     private javax.swing.JLabel rtUnidadeParticipacaoIdeal;
     private javax.swing.JLabel rtUnidadeParticipacaodesejada;
     private javax.swing.JLabel rtUnidadeQuantidadeAplicar;
@@ -363,15 +357,18 @@ public class CorrecaoPotassioGUI extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void enviar() {
-        double presenteCTC = (Double.parseDouble(cxPotassioSolo.getText().replace(",", ".")) /
-                             (Double.parseDouble(cxPotassioSolo.getText().replace(",", ".")) 
-                            + Double.parseDouble(cxCalcioSolo.getText().replace(",", "."))
-                            + Double.parseDouble(cxMagnesioSolo.getText().replace(",", "."))
-                            + Double.parseDouble(cxHALSolo.getText().replace(",", "."))))
-                            * 100;
+        double presenteCTC = (Double.parseDouble(cxPotassioSolo.getText().replace(",", "."))/
+                                new EquilibrioCorrecaoCTC().calculaCTCCmol(
+                                    Double.parseDouble(cxPotassioSolo.getText().replace(",", ".")), 
+                                    Double.parseDouble(cxCalcioSolo.getText().replace(",", ".")), 
+                                    Double.parseDouble(cxMagnesioSolo.getText().replace(",", ".")), 
+                                    Double.parseDouble(cxHALSolo.getText().replace(",", ".")))) * 100;
 
         BigDecimal bd = new BigDecimal(presenteCTC).setScale(3, RoundingMode.HALF_EVEN);
         presenteCTC = bd.doubleValue();
+        
+        BigDecimal bd1 = new BigDecimal(presenteCTC).setScale(1, RoundingMode.HALF_EVEN);
+        cxParticipacaoAtual.setText(Double.toString(bd1.doubleValue()));
         
         double necessidadeCorrecao = new CorrecaoPotassio()
                                     .calculaNecessidadeAdicionarCMolcDm3(
@@ -379,9 +376,8 @@ public class CorrecaoPotassioGUI extends javax.swing.JFrame {
                                         presenteCTC/100, 
                                         Double.parseDouble(cxParticipacaoDesejada.getText().replace(",", "."))/100);
         if(necessidadeCorrecao<=0){
-            BigDecimal bd1 = new BigDecimal(presenteCTC).setScale(1, RoundingMode.HALF_EVEN);
-            cxParticipacaoAtual.setText(Double.toString(bd1.doubleValue()));
-            cxParticipacaoCorrecao.setText("Não necessário correção");
+            BigDecimal bd2 = new BigDecimal(presenteCTC).setScale(1, RoundingMode.HALF_EVEN);
+            cxParticipacaoAtual.setText(Double.toString(bd2.doubleValue()));
             cxQuantidadeAplicar.setText("Não necessário correção");
             cxCusto.setText("Não necessário correção");
         }else{
@@ -392,18 +388,64 @@ public class CorrecaoPotassioGUI extends javax.swing.JFrame {
             String fonte = cbFontePotassio.getSelectedItem().toString();
             double qtdAplicar;
             double custo;
+            Set<NutrienteAdicional> nutrientesAdicionais;
+            String nomeNutrienteAdicional1;
+            double valorCorrecaoAdicional1;
+            String nomeNutrienteAdicional2;
+            double valorCorrecaoAdicional2;
             switch(fonte){
                 case "Cloreto de Potássio":
                     qtdAplicar = new CorrecaoPotassio().calculaQuantidadeAplicar(eficiencia, FontePotassio.CLORETO_POTASSIO);
+                    BigDecimal bd3 = new BigDecimal(qtdAplicar).setScale(2, RoundingMode.HALF_EVEN);
+                    cxQuantidadeAplicar.setText(Double.toString(bd3.doubleValue()));
+                    
                     custo = new CorrecaoPotassio().calculaCusto(Double.parseDouble(cxValorFonte.getText().replace(",", ".")), qtdAplicar);
+                    BigDecimal bd4 = new BigDecimal(custo).setScale(2, RoundingMode.HALF_EVEN);
+                    cxCusto.setText(Double.toString(bd4.doubleValue()));
+                    
                     break;
                 case "Sulfato de Potássio":
                     qtdAplicar = new CorrecaoPotassio().calculaQuantidadeAplicar(eficiencia, FontePotassio.SULFATO_POTASSIO);
+                    BigDecimal bd5 = new BigDecimal(qtdAplicar).setScale(2, RoundingMode.HALF_EVEN);
+                    cxQuantidadeAplicar.setText(Double.toString(bd5.doubleValue()));
+                    
                     custo = new CorrecaoPotassio().calculaCusto(Double.parseDouble(cxValorFonte.getText().replace(",", ".")), qtdAplicar);
+                    BigDecimal bd6 = new BigDecimal(custo).setScale(2, RoundingMode.HALF_EVEN);
+                    cxCusto.setText(Double.toString(bd6.doubleValue()));
+                    
+                    nutrientesAdicionais = new CorrecaoPotassio()
+                                            .getNutrientesAdicionais(qtdAplicar, FontePotassio.SULFATO_POTASSIO);
+                    
+                    nomeNutrienteAdicional1 = nutrientesAdicionais.stream().findFirst().get().getNome().toString();
+                    valorCorrecaoAdicional1 = nutrientesAdicionais.stream().findFirst().get().getCorrecaoAdicional();
+                    BigDecimal bd7 = new BigDecimal(valorCorrecaoAdicional1).setScale(1, RoundingMode.HALF_EVEN);
+                    cxCorrecaoAdicional.setText(nomeNutrienteAdicional1+": "
+                                            +Double.toString(bd7.doubleValue()));
+                    
                     break;
                 case "Sulfato Potássio/Magnésio":
                     qtdAplicar = new CorrecaoPotassio().calculaQuantidadeAplicar(eficiencia, FontePotassio.SULFATO_POTASSIO_MAGNESIO);
+                    BigDecimal bd8 = new BigDecimal(qtdAplicar).setScale(2, RoundingMode.HALF_EVEN);
+                    cxQuantidadeAplicar.setText(Double.toString(bd8.doubleValue()));
+                    
                     custo = new CorrecaoPotassio().calculaCusto(Double.parseDouble(cxValorFonte.getText().replace(",", ".")), qtdAplicar);
+                    BigDecimal bd9 = new BigDecimal(custo).setScale(2, RoundingMode.HALF_EVEN);
+                    cxCusto.setText(Double.toString(bd9.doubleValue()));
+                    
+                    nutrientesAdicionais = new CorrecaoPotassio()
+                                            .getNutrientesAdicionais(qtdAplicar, FontePotassio.SULFATO_POTASSIO_MAGNESIO);
+                    
+                    nomeNutrienteAdicional1 = nutrientesAdicionais.stream().skip(0).findFirst().get().getNome().toString();
+                    valorCorrecaoAdicional1 = nutrientesAdicionais.stream().skip(0).findFirst().get().getCorrecaoAdicional();
+                    BigDecimal bd10 = new BigDecimal(valorCorrecaoAdicional1).setScale(1, RoundingMode.HALF_EVEN);
+                    nomeNutrienteAdicional2 = nutrientesAdicionais.stream().skip(1).findFirst().get().getNome().toString();
+                    valorCorrecaoAdicional2 = nutrientesAdicionais.stream().skip(1).findFirst().get().getCorrecaoAdicional();
+                    BigDecimal bd11 = new BigDecimal(valorCorrecaoAdicional2).setScale(1, RoundingMode.HALF_EVEN);
+                    cxCorrecaoAdicional.setText(nomeNutrienteAdicional1+": "
+                                                +Double.toString(bd10.doubleValue())+" e "
+                            +nomeNutrienteAdicional2+": "
+                            +Double.toString(bd11.doubleValue()));
+                    
                     break;
                 default:
                     qtdAplicar = 0;
@@ -411,13 +453,6 @@ public class CorrecaoPotassioGUI extends javax.swing.JFrame {
                     break;
             }
             
-            BigDecimal bd1 = new BigDecimal(presenteCTC).setScale(1, RoundingMode.HALF_EVEN);
-            cxParticipacaoAtual.setText(Double.toString(bd1.doubleValue()));
-            cxParticipacaoCorrecao.setText(cxParticipacaoDesejada.getText());
-            BigDecimal bd2 = new BigDecimal(qtdAplicar).setScale(2, RoundingMode.HALF_EVEN);
-            cxQuantidadeAplicar.setText(Double.toString(bd2.doubleValue()));
-            BigDecimal bd3 = new BigDecimal(custo).setScale(2, RoundingMode.HALF_EVEN);
-            cxCusto.setText(Double.toString(bd3.doubleValue()));
         }
     }
 }
