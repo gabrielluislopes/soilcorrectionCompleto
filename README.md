@@ -4,22 +4,22 @@ Integração da interface gráfica com o restante da arquitetura.
 
 Tela principal
 
-![image](https://user-images.githubusercontent.com/80367902/143311225-0d3586fb-fba5-4de2-9a56-4ccd75031bf9.png)
+![image](https://user-images.githubusercontent.com/80367902/143326002-0cbc013d-1409-4c6f-a296-b7b971043867.png)
 
 A tela principal oferece a possibilidade de escolher entre as Correções disponíveis. 
-Para continuar vamos seguir com a escolha da Correção de Potássio.
+Para continuar vamos seguir com a escolha da Correção de Fósforo.
 
-Tela para correção de Potássio
+Tela para correção de Fósforo
 
-![image](https://user-images.githubusercontent.com/80367902/143311461-609ae0b7-a306-43f2-b48f-cfe219e2379b.png)
+![image](https://user-images.githubusercontent.com/80367902/143326052-d99b6bf6-a8c4-4d72-b0fd-dd72f2f8e2fa.png)
 
-A tela para realizar as correções de Potássio irá abrir desta maneira, tendo os campos que devem ser preenchidos pelo usuário, e os campos que vão retornar os resultados após realização dos cálculos.
+A tela para realizar as correções de Fósforo irá abrir desta maneira, tendo os campos que devem ser preenchidos pelo usuário, e os campos que vão retornar os resultados após realização dos cálculos.
 
 Ao preencher as informações a tela ficará assim:
-![image](https://user-images.githubusercontent.com/80367902/143311673-458dc46d-e2f0-4b07-8b36-4af1da7c9ae0.png)
+![image](https://user-images.githubusercontent.com/80367902/143326096-17b375a3-f60d-407e-8f8f-6c164fc68dd1.png)
 
 Ao pressionar o botão enviar será realizado os cálculos desejados. 
-![image](https://user-images.githubusercontent.com/80367902/143311759-2348afe2-2ac9-4f97-b05f-f4e8cda13e55.png)
+![image](https://user-images.githubusercontent.com/80367902/143326123-f6213266-1acc-47a0-b4ea-95627070e8b0.png)
 
 As telas para outras correções tem o mesmo principio de funcionamento.
 
