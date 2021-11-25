@@ -79,7 +79,7 @@ public class ValoresIdeaisGUI extends javax.swing.JFrame {
         rtUnidadeFosforo.setBounds(205, 222, 56, 20);
 
         cxFosforoIdeal.setEditable(false);
-        cxFosforoIdeal.setBackground(new java.awt.Color(153, 153, 153));
+        cxFosforoIdeal.setBackground(new java.awt.Color(204, 204, 204));
         cxFosforoIdeal.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cxFosforoIdeal.setForeground(new java.awt.Color(0, 0, 0));
         cxFosforoIdeal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -99,7 +99,7 @@ public class ValoresIdeaisGUI extends javax.swing.JFrame {
         rtUnidadePotassio.setBounds(209, 270, 37, 20);
 
         cxPotassioIdeal.setEditable(false);
-        cxPotassioIdeal.setBackground(new java.awt.Color(153, 153, 153));
+        cxPotassioIdeal.setBackground(new java.awt.Color(204, 204, 204));
         cxPotassioIdeal.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cxPotassioIdeal.setForeground(new java.awt.Color(0, 0, 0));
         cxPotassioIdeal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -119,7 +119,7 @@ public class ValoresIdeaisGUI extends javax.swing.JFrame {
         rtUnidadeCalcio.setBounds(209, 318, 37, 20);
 
         cxCalcioIdeal.setEditable(false);
-        cxCalcioIdeal.setBackground(new java.awt.Color(153, 153, 153));
+        cxCalcioIdeal.setBackground(new java.awt.Color(204, 204, 204));
         cxCalcioIdeal.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cxCalcioIdeal.setForeground(new java.awt.Color(0, 0, 0));
         cxCalcioIdeal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -139,7 +139,7 @@ public class ValoresIdeaisGUI extends javax.swing.JFrame {
         rtUnidadeMagnesio.setBounds(209, 366, 37, 20);
 
         cxMagnesioIdeal.setEditable(false);
-        cxMagnesioIdeal.setBackground(new java.awt.Color(153, 153, 153));
+        cxMagnesioIdeal.setBackground(new java.awt.Color(204, 204, 204));
         cxMagnesioIdeal.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cxMagnesioIdeal.setForeground(new java.awt.Color(0, 0, 0));
         cxMagnesioIdeal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -159,7 +159,7 @@ public class ValoresIdeaisGUI extends javax.swing.JFrame {
         rtUnidadeEnxofre.setBounds(205, 418, 56, 20);
 
         cxEnxofreIdeal.setEditable(false);
-        cxEnxofreIdeal.setBackground(new java.awt.Color(153, 153, 153));
+        cxEnxofreIdeal.setBackground(new java.awt.Color(204, 204, 204));
         cxEnxofreIdeal.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cxEnxofreIdeal.setForeground(new java.awt.Color(0, 0, 0));
         cxEnxofreIdeal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -173,7 +173,7 @@ public class ValoresIdeaisGUI extends javax.swing.JFrame {
         rtAluminio.setBounds(120, 462, 77, 25);
 
         cxAluminioIdeal.setEditable(false);
-        cxAluminioIdeal.setBackground(new java.awt.Color(153, 153, 153));
+        cxAluminioIdeal.setBackground(new java.awt.Color(204, 204, 204));
         cxAluminioIdeal.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cxAluminioIdeal.setForeground(new java.awt.Color(0, 0, 0));
         cxAluminioIdeal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -187,7 +187,7 @@ public class ValoresIdeaisGUI extends javax.swing.JFrame {
         rtHAL.setBounds(120, 510, 59, 25);
 
         cxHALIdeal.setEditable(false);
-        cxHALIdeal.setBackground(new java.awt.Color(153, 153, 153));
+        cxHALIdeal.setBackground(new java.awt.Color(204, 204, 204));
         cxHALIdeal.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cxHALIdeal.setForeground(new java.awt.Color(0, 0, 0));
         cxHALIdeal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -220,9 +220,9 @@ public class ValoresIdeaisGUI extends javax.swing.JFrame {
         getContentPane().add(cbTipoSolo);
         cbTipoSolo.setBounds(120, 120, 330, 42);
 
-        rtFundo.setIcon(new javax.swing.ImageIcon("C:\\Users\\gabri\\OneDrive\\Documentos\\UTFPR\\2021 - semestre 2\\Arquitetura de Software\\GUIsoilcorrection\\GUIsoilcorrection\\src\\main\\java\\gui\\imagens\\fundo3.jpg")); // NOI18N
+        rtFundo.setIcon(new javax.swing.ImageIcon("C:\\Users\\gabri\\OneDrive\\Documentos\\UTFPR\\2021 - semestre 2\\Arquitetura de Software\\soilcorrectionCompleto\\soilcorrection\\src\\main\\java\\gui\\imagens\\background.png")); // NOI18N
         getContentPane().add(rtFundo);
-        rtFundo.setBounds(0, 0, 1030, 780);
+        rtFundo.setBounds(-10, -10, 1050, 790);
 
         pack();
         setLocationRelativeTo(null);

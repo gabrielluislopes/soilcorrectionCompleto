@@ -122,7 +122,7 @@ public class CorrecaoFosforoGUI extends javax.swing.JFrame {
         rtQuantidadeAplicada.setBounds(181, 319, 214, 25);
 
         cxQuantidadeAplicada.setEditable(false);
-        cxQuantidadeAplicada.setBackground(new java.awt.Color(153, 153, 153));
+        cxQuantidadeAplicada.setBackground(new java.awt.Color(204, 204, 204));
         cxQuantidadeAplicada.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cxQuantidadeAplicada.setForeground(new java.awt.Color(0, 0, 0));
         cxQuantidadeAplicada.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -159,7 +159,7 @@ public class CorrecaoFosforoGUI extends javax.swing.JFrame {
         rtCusto.setBounds(181, 415, 124, 25);
 
         cxCusto.setEditable(false);
-        cxCusto.setBackground(new java.awt.Color(153, 153, 153));
+        cxCusto.setBackground(new java.awt.Color(204, 204, 204));
         cxCusto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cxCusto.setForeground(new java.awt.Color(0, 0, 0));
         cxCusto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -174,7 +174,7 @@ public class CorrecaoFosforoGUI extends javax.swing.JFrame {
         rtCorrecao.setBounds(287, 502, 450, 25);
 
         cxCorrecaoAdicional.setEditable(false);
-        cxCorrecaoAdicional.setBackground(new java.awt.Color(153, 153, 153));
+        cxCorrecaoAdicional.setBackground(new java.awt.Color(204, 204, 204));
         cxCorrecaoAdicional.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cxCorrecaoAdicional.setForeground(new java.awt.Color(0, 0, 0));
         cxCorrecaoAdicional.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -210,11 +210,11 @@ public class CorrecaoFosforoGUI extends javax.swing.JFrame {
         rtFundo.setBackground(new java.awt.Color(255, 255, 255));
         rtFundo.setForeground(new java.awt.Color(0, 0, 0));
         rtFundo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        rtFundo.setIcon(new javax.swing.ImageIcon("C:\\Users\\gabri\\OneDrive\\Documentos\\UTFPR\\2021 - semestre 2\\Arquitetura de Software\\GUIsoilcorrection\\GUIsoilcorrection\\src\\main\\java\\gui\\imagens\\fundo3.jpg")); // NOI18N
+        rtFundo.setIcon(new javax.swing.ImageIcon("C:\\Users\\gabri\\OneDrive\\Documentos\\UTFPR\\2021 - semestre 2\\Arquitetura de Software\\soilcorrectionCompleto\\soilcorrection\\src\\main\\java\\gui\\imagens\\background.png")); // NOI18N
         rtFundo.setText("Enviar");
         rtFundo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         getContentPane().add(rtFundo);
-        rtFundo.setBounds(-10, -10, 1040, 780);
+        rtFundo.setBounds(-10, -10, 1050, 790);
 
         pack();
         setLocationRelativeTo(null);

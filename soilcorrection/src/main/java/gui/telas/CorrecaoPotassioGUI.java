@@ -89,7 +89,7 @@ public class CorrecaoPotassioGUI extends javax.swing.JFrame {
         rtParticipacaoAtual.setBounds(190, 223, 389, 25);
 
         cxParticipacaoAtual.setEditable(false);
-        cxParticipacaoAtual.setBackground(new java.awt.Color(153, 153, 153));
+        cxParticipacaoAtual.setBackground(new java.awt.Color(204, 204, 204));
         cxParticipacaoAtual.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cxParticipacaoAtual.setForeground(new java.awt.Color(0, 0, 0));
         cxParticipacaoAtual.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -127,7 +127,7 @@ public class CorrecaoPotassioGUI extends javax.swing.JFrame {
         rtParticipacaoCorrecao.setBounds(190, 319, 401, 25);
 
         cxParticipacaoCorrecao.setEditable(false);
-        cxParticipacaoCorrecao.setBackground(new java.awt.Color(153, 153, 153));
+        cxParticipacaoCorrecao.setBackground(new java.awt.Color(204, 204, 204));
         cxParticipacaoCorrecao.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cxParticipacaoCorrecao.setForeground(new java.awt.Color(0, 0, 0));
         cxParticipacaoCorrecao.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -147,7 +147,7 @@ public class CorrecaoPotassioGUI extends javax.swing.JFrame {
         rtParticipacaoIdeal.setBounds(190, 367, 322, 25);
 
         cxParticipacaoIdeal.setEditable(false);
-        cxParticipacaoIdeal.setBackground(new java.awt.Color(153, 153, 153));
+        cxParticipacaoIdeal.setBackground(new java.awt.Color(204, 204, 204));
         cxParticipacaoIdeal.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         cxParticipacaoIdeal.setForeground(new java.awt.Color(0, 0, 0));
         cxParticipacaoIdeal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -180,7 +180,7 @@ public class CorrecaoPotassioGUI extends javax.swing.JFrame {
         rtQuantidadeAplicar.setBounds(190, 463, 167, 25);
 
         cxQuantidadeAplicar.setEditable(false);
-        cxQuantidadeAplicar.setBackground(new java.awt.Color(153, 153, 153));
+        cxQuantidadeAplicar.setBackground(new java.awt.Color(204, 204, 204));
         cxQuantidadeAplicar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cxQuantidadeAplicar.setForeground(new java.awt.Color(0, 0, 0));
         cxQuantidadeAplicar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -200,7 +200,7 @@ public class CorrecaoPotassioGUI extends javax.swing.JFrame {
         rtCusto.setBounds(190, 511, 110, 25);
 
         cxCusto.setEditable(false);
-        cxCusto.setBackground(new java.awt.Color(153, 153, 153));
+        cxCusto.setBackground(new java.awt.Color(204, 204, 204));
         cxCusto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cxCusto.setForeground(new java.awt.Color(0, 0, 0));
         cxCusto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -278,9 +278,9 @@ public class CorrecaoPotassioGUI extends javax.swing.JFrame {
         getContentPane().add(rtHAL);
         rtHAL.setBounds(710, 140, 75, 16);
 
-        rtFundo.setIcon(new javax.swing.ImageIcon("C:\\Users\\gabri\\OneDrive\\Documentos\\UTFPR\\2021 - semestre 2\\Arquitetura de Software\\GUIsoilcorrection\\GUIsoilcorrection\\src\\main\\java\\gui\\imagens\\fundo3.jpg")); // NOI18N
+        rtFundo.setIcon(new javax.swing.ImageIcon("C:\\Users\\gabri\\OneDrive\\Documentos\\UTFPR\\2021 - semestre 2\\Arquitetura de Software\\soilcorrectionCompleto\\soilcorrection\\src\\main\\java\\gui\\imagens\\background.png")); // NOI18N
         getContentPane().add(rtFundo);
-        rtFundo.setBounds(0, 0, 1080, 770);
+        rtFundo.setBounds(-10, -10, 1050, 790);
 
         pack();
         setLocationRelativeTo(null);

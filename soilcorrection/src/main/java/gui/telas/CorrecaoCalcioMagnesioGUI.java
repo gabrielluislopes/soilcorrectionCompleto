@@ -103,7 +103,7 @@ public class CorrecaoCalcioMagnesioGUI extends javax.swing.JFrame {
         rtParticipacaoAtual.setBounds(125, 238, 268, 25);
 
         cxParticipacaoAtualCalcio.setEditable(false);
-        cxParticipacaoAtualCalcio.setBackground(new java.awt.Color(153, 153, 153));
+        cxParticipacaoAtualCalcio.setBackground(new java.awt.Color(204, 204, 204));
         cxParticipacaoAtualCalcio.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cxParticipacaoAtualCalcio.setForeground(new java.awt.Color(0, 0, 0));
         cxParticipacaoAtualCalcio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -147,7 +147,7 @@ public class CorrecaoCalcioMagnesioGUI extends javax.swing.JFrame {
         rtParticipacaoAtual1.setBounds(125, 377, 268, 25);
 
         cxParticipacaoAtualMagnesio.setEditable(false);
-        cxParticipacaoAtualMagnesio.setBackground(new java.awt.Color(153, 153, 153));
+        cxParticipacaoAtualMagnesio.setBackground(new java.awt.Color(204, 204, 204));
         cxParticipacaoAtualMagnesio.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cxParticipacaoAtualMagnesio.setForeground(new java.awt.Color(0, 0, 0));
         cxParticipacaoAtualMagnesio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -215,7 +215,7 @@ public class CorrecaoCalcioMagnesioGUI extends javax.swing.JFrame {
         rtQuantidadeAplicar.setBounds(125, 588, 167, 25);
 
         cxQuantidadeAplicar.setEditable(false);
-        cxQuantidadeAplicar.setBackground(new java.awt.Color(153, 153, 153));
+        cxQuantidadeAplicar.setBackground(new java.awt.Color(204, 204, 204));
         cxQuantidadeAplicar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cxQuantidadeAplicar.setForeground(new java.awt.Color(0, 0, 0));
         cxQuantidadeAplicar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -235,7 +235,7 @@ public class CorrecaoCalcioMagnesioGUI extends javax.swing.JFrame {
         rtCusto.setBounds(125, 636, 114, 25);
 
         cxCusto.setEditable(false);
-        cxCusto.setBackground(new java.awt.Color(153, 153, 153));
+        cxCusto.setBackground(new java.awt.Color(204, 204, 204));
         cxCusto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cxCusto.setForeground(new java.awt.Color(0, 0, 0));
         cxCusto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -325,9 +325,9 @@ public class CorrecaoCalcioMagnesioGUI extends javax.swing.JFrame {
         getContentPane().add(cxValorFonte);
         cxValorFonte.setBounds(690, 441, 150, 30);
 
-        rtFundo.setIcon(new javax.swing.ImageIcon("C:\\Users\\gabri\\OneDrive\\Documentos\\UTFPR\\2021 - semestre 2\\Arquitetura de Software\\GUIsoilcorrection\\GUIsoilcorrection\\src\\main\\java\\gui\\imagens\\fundo3.jpg")); // NOI18N
+        rtFundo.setIcon(new javax.swing.ImageIcon("C:\\Users\\gabri\\OneDrive\\Documentos\\UTFPR\\2021 - semestre 2\\Arquitetura de Software\\soilcorrectionCompleto\\soilcorrection\\src\\main\\java\\gui\\imagens\\background.png")); // NOI18N
         getContentPane().add(rtFundo);
-        rtFundo.setBounds(0, 0, 1090, 780);
+        rtFundo.setBounds(-10, -10, 1050, 790);
 
         pack();
         setLocationRelativeTo(null);
