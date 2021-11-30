@@ -4,11 +4,16 @@
  */
 package view;
 
+import converte.ConverteCMolcDm3EmMgDm3;
+import converte.ConverteKgHaEmK2O;
 import converte.ConverteKgHaEmP2O5;
 import converte.ConverteMgDm3EmKgHa;
 import correcao_fonte_nutrientes.NutrienteAdicional;
 import correcao_fonte_nutrientes.fosforo.CorrecaoFosforo;
 import correcao_fonte_nutrientes.fosforo.FonteFosforo;
+import correcao_fonte_nutrientes.potassio.CorrecaoPotassio;
+import correcao_fonte_nutrientes.potassio.FontePotassio;
+import ctc.EquilibrioCorrecaoCTC;
 import ctc.TexturaSolo;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -25,6 +30,7 @@ public class TelaInicial extends javax.swing.JFrame {
      */
     
     DadosCorrecaoFosforo dadosFosforo = new DadosCorrecaoFosforo();
+    DadosCorrecaoPotassio dadosPotassio = new DadosCorrecaoPotassio();
     
     public TelaInicial() {
         initComponents();
@@ -84,9 +90,19 @@ public class TelaInicial extends javax.swing.JFrame {
         cxEficienciaFosforo = new javax.swing.JTextField();
         rtRecomendacaoEficienciaFosforo = new javax.swing.JLabel();
         btEnviarCorrecaoFosforo = new javax.swing.JButton();
+        pnPainelCorrecaoPotassio = new javax.swing.JPanel();
+        rtCorrecaoPotassio = new javax.swing.JLabel();
+        rtParticipacaoPotassioDesejada = new javax.swing.JLabel();
+        cxParticipacaoPotassioDesejada = new javax.swing.JTextField();
+        rtFontePotassio = new javax.swing.JLabel();
+        cbFontePotassio = new javax.swing.JComboBox<>();
+        rtValorFontePotassio = new javax.swing.JLabel();
+        cxValorFontePotassio = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Soil Correction");
+        setPreferredSize(new java.awt.Dimension(1024, 768));
 
         jScrollPane.setBorder(null);
 
@@ -378,6 +394,7 @@ public class TelaInicial extends javax.swing.JFrame {
         );
 
         rtCorrecaoFosforo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        rtCorrecaoFosforo.setForeground(new java.awt.Color(0, 0, 0));
         rtCorrecaoFosforo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         rtCorrecaoFosforo.setText("Correção de Fósforo");
 
@@ -496,7 +513,102 @@ public class TelaInicial extends javax.swing.JFrame {
                     .addComponent(rtRecomendacaoEficienciaFosforo))
                 .addGap(18, 18, 18)
                 .addComponent(btEnviarCorrecaoFosforo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
+        );
+
+        rtCorrecaoPotassio.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        rtCorrecaoPotassio.setForeground(new java.awt.Color(0, 0, 0));
+        rtCorrecaoPotassio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rtCorrecaoPotassio.setText("Correção Potássio");
+
+        rtParticipacaoPotassioDesejada.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rtParticipacaoPotassioDesejada.setForeground(new java.awt.Color(0, 0, 0));
+        rtParticipacaoPotassioDesejada.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rtParticipacaoPotassioDesejada.setText("Participação do Potássio na CTC, desejada: %");
+
+        cxParticipacaoPotassioDesejada.setBackground(new java.awt.Color(255, 255, 255));
+        cxParticipacaoPotassioDesejada.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cxParticipacaoPotassioDesejada.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        rtFontePotassio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rtFontePotassio.setForeground(new java.awt.Color(0, 0, 0));
+        rtFontePotassio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rtFontePotassio.setText("Fonte de Potássio a usar: ");
+
+        cbFontePotassio.setBackground(new java.awt.Color(255, 255, 255));
+        cbFontePotassio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cbFontePotassio.setForeground(new java.awt.Color(0, 0, 0));
+        cbFontePotassio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cloreto de Potássio", "Sulfato de Potássio", "Sulfato Potássio/Magnésio" }));
+        cbFontePotassio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        rtValorFontePotassio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rtValorFontePotassio.setForeground(new java.awt.Color(0, 0, 0));
+        rtValorFontePotassio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rtValorFontePotassio.setText("Valor/ton. (R$)");
+
+        cxValorFontePotassio.setBackground(new java.awt.Color(255, 255, 255));
+        cxValorFontePotassio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cxValorFontePotassio.setForeground(new java.awt.Color(0, 0, 0));
+        cxValorFontePotassio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setText("Enviar correção potássio");
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnPainelCorrecaoPotassioLayout = new javax.swing.GroupLayout(pnPainelCorrecaoPotassio);
+        pnPainelCorrecaoPotassio.setLayout(pnPainelCorrecaoPotassioLayout);
+        pnPainelCorrecaoPotassioLayout.setHorizontalGroup(
+            pnPainelCorrecaoPotassioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnPainelCorrecaoPotassioLayout.createSequentialGroup()
+                .addComponent(rtCorrecaoPotassio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(pnPainelCorrecaoPotassioLayout.createSequentialGroup()
+                .addGroup(pnPainelCorrecaoPotassioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnPainelCorrecaoPotassioLayout.createSequentialGroup()
+                        .addGap(273, 273, 273)
+                        .addComponent(rtParticipacaoPotassioDesejada)
+                        .addGap(50, 50, 50)
+                        .addComponent(cxParticipacaoPotassioDesejada, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnPainelCorrecaoPotassioLayout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(rtFontePotassio)
+                        .addGap(42, 42, 42)
+                        .addComponent(cbFontePotassio, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addComponent(rtValorFontePotassio)
+                        .addGap(42, 42, 42)
+                        .addComponent(cxValorFontePotassio, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnPainelCorrecaoPotassioLayout.createSequentialGroup()
+                .addGap(410, 410, 410)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(410, 410, 410))
+        );
+        pnPainelCorrecaoPotassioLayout.setVerticalGroup(
+            pnPainelCorrecaoPotassioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnPainelCorrecaoPotassioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(rtCorrecaoPotassio, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(pnPainelCorrecaoPotassioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rtParticipacaoPotassioDesejada)
+                    .addComponent(cxParticipacaoPotassioDesejada, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnPainelCorrecaoPotassioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rtFontePotassio)
+                    .addComponent(cbFontePotassio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rtValorFontePotassio)
+                    .addComponent(cxValorFontePotassio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanelLayout = new javax.swing.GroupLayout(jPanel);
@@ -506,9 +618,11 @@ public class TelaInicial extends javax.swing.JFrame {
             .addGroup(jPanelLayout.createSequentialGroup()
                 .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnPainelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 1026, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnPainelCorrecaoFosforo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pnPainelTexturaDoSolo, javax.swing.GroupLayout.PREFERRED_SIZE, 1026, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnPainelValores, javax.swing.GroupLayout.PREFERRED_SIZE, 1014, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pnPainelValores, javax.swing.GroupLayout.PREFERRED_SIZE, 1014, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(pnPainelCorrecaoPotassio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pnPainelCorrecaoFosforo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(155, Short.MAX_VALUE))
         );
         jPanelLayout.setVerticalGroup(
@@ -521,7 +635,9 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addComponent(pnPainelValores, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(pnPainelCorrecaoFosforo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 125, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnPainelCorrecaoPotassio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100))
         );
 
         jScrollPane.setViewportView(jPanel);
@@ -534,7 +650,7 @@ public class TelaInicial extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE)
+            .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 2048, Short.MAX_VALUE)
         );
 
         pack();
@@ -548,6 +664,10 @@ public class TelaInicial extends javax.swing.JFrame {
     private void btEnviarCorrecaoFosforoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnviarCorrecaoFosforoActionPerformed
         enviarCorrecaoFosforo();
     }//GEN-LAST:event_btEnviarCorrecaoFosforoActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        enviarCorrecaoPotassio();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -588,6 +708,7 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JButton btConsultarValoresIdeais;
     private javax.swing.JButton btEnviarCorrecaoFosforo;
     private javax.swing.JComboBox<String> cbFonteFosforo;
+    private javax.swing.JComboBox<String> cbFontePotassio;
     private javax.swing.JComboBox<String> cbTexturaDoSolo;
     private javax.swing.JTextField cxAluminioIdeal;
     private javax.swing.JTextField cxAluminioSolo;
@@ -603,33 +724,41 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JTextField cxHalSolo;
     private javax.swing.JTextField cxMagnesioIdeal;
     private javax.swing.JTextField cxMagnesioSolo;
+    private javax.swing.JTextField cxParticipacaoPotassioDesejada;
     private javax.swing.JTextField cxPotassioIdeal;
     private javax.swing.JTextField cxPotassioSolo;
     private javax.swing.JTextField cxTeorFosforoAtingir;
     private javax.swing.JTextField cxValorFonteFosforo;
+    private javax.swing.JTextField cxValorFontePotassio;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel;
     private javax.swing.JScrollPane jScrollPane;
     private javax.swing.JPanel pnPainelCorrecaoFosforo;
+    private javax.swing.JPanel pnPainelCorrecaoPotassio;
     private javax.swing.JPanel pnPainelTexturaDoSolo;
     private javax.swing.JPanel pnPainelTitulo;
     private javax.swing.JPanel pnPainelValores;
     private javax.swing.JLabel rtAluminio;
     private javax.swing.JLabel rtCalcio;
     private javax.swing.JLabel rtCorrecaoFosforo;
+    private javax.swing.JLabel rtCorrecaoPotassio;
     private javax.swing.JLabel rtEficienciaFosforo;
     private javax.swing.JLabel rtEnxofre;
+    private javax.swing.JLabel rtFontePotassio;
     private javax.swing.JLabel rtFosforo;
     private javax.swing.JLabel rtHal;
     private javax.swing.JLabel rtIdeal;
     private javax.swing.JLabel rtMagnesio;
     private javax.swing.JLabel rtNoSolo;
     private javax.swing.JLabel rtObservacao;
+    private javax.swing.JLabel rtParticipacaoPotassioDesejada;
     private javax.swing.JLabel rtPotassio;
     private javax.swing.JLabel rtRecomendacaoEficienciaFosforo;
     private javax.swing.JLabel rtTeorFosforoAtingir;
     private javax.swing.JLabel rtTexturaDoSolo;
     private javax.swing.JLabel rtTitulo;
     private javax.swing.JLabel rtValorFonteFosforo;
+    private javax.swing.JLabel rtValorFontePotassio;
     // End of variables declaration//GEN-END:variables
     public void consultar(){
         String tipoSolo = cbTexturaDoSolo.getSelectedItem().toString();
@@ -768,6 +897,116 @@ public class TelaInicial extends javax.swing.JFrame {
         TelaCorrecaoFosforo cf = new TelaCorrecaoFosforo();
         cf.setVisible(true);
         cf.mostrarCorrecaoFosforo(dadosFosforo);
+    }
+
+    private void enviarCorrecaoPotassio() {
+        dadosPotassio.setDesejada(Double.parseDouble(cxParticipacaoPotassioDesejada.getText().replace(",", ".")));
+        dadosPotassio.setFonte(cbFontePotassio.getSelectedItem().toString());
+        dadosPotassio.setValor(Double.parseDouble(cxValorFontePotassio.getText().replace(",", ".")));
+        
+        double presenteCTC = (Double.parseDouble(cxPotassioSolo.getText().replace(",", "."))/
+                                new EquilibrioCorrecaoCTC().calculaCTCCmol(
+                                    Double.parseDouble(cxPotassioSolo.getText().replace(",", ".")), 
+                                    Double.parseDouble(cxCalcioSolo.getText().replace(",", ".")), 
+                                    Double.parseDouble(cxMagnesioSolo.getText().replace(",", ".")), 
+                                    Double.parseDouble(cxHalSolo.getText().replace(",", ".")))) * 100;
+
+        BigDecimal bd = new BigDecimal(presenteCTC).setScale(3, RoundingMode.HALF_EVEN);
+        presenteCTC = bd.doubleValue();
+        
+        BigDecimal bd1 = new BigDecimal(presenteCTC).setScale(1, RoundingMode.HALF_EVEN);
+        dadosPotassio.setAtual(bd1.doubleValue());
+        
+        double necessidadeCorrecao = new CorrecaoPotassio()
+                                    .calculaNecessidadeAdicionarCMolcDm3(
+                                        Double.parseDouble(cxPotassioSolo.getText().replace(",", ".")), 
+                                        presenteCTC/100, 
+                                        Double.parseDouble(cxParticipacaoPotassioDesejada.getText().replace(",", "."))/100);
+        dadosPotassio.setNecessidadeCorrecao(necessidadeCorrecao);
+        if(necessidadeCorrecao>0){
+            double necessidadeMgDm3 = new ConverteCMolcDm3EmMgDm3().converte(necessidadeCorrecao);
+            double necessidadeKgHa = new ConverteMgDm3EmKgHa().converte(necessidadeMgDm3);
+            double necessidadeK2O = new ConverteKgHaEmK2O().converte(necessidadeKgHa);
+            double eficiencia = new CorrecaoPotassio().calculaEficienciaNutriente(necessidadeK2O, 0.85);
+            String fonte = cbFontePotassio.getSelectedItem().toString();
+            double qtdAplicar;
+            double custo;
+            Set<NutrienteAdicional> nutrientesAdicionais;
+            String nomeNutrienteAdicional1;
+            double valorCorrecaoAdicional1;
+            String nomeNutrienteAdicional2;
+            double valorCorrecaoAdicional2;
+            switch(fonte){
+                case "Cloreto de Potássio":
+                    qtdAplicar = new CorrecaoPotassio().calculaQuantidadeAplicar(eficiencia, FontePotassio.CLORETO_POTASSIO);
+                    BigDecimal bd3 = new BigDecimal(qtdAplicar).setScale(2, RoundingMode.HALF_EVEN);
+                    dadosPotassio.setQtdAplicar(bd3.doubleValue());
+                    
+                    custo = new CorrecaoPotassio().calculaCusto(Double.parseDouble(cxValorFontePotassio.getText().replace(",", ".")), qtdAplicar);
+                    BigDecimal bd4 = new BigDecimal(custo).setScale(2, RoundingMode.HALF_EVEN);
+                    dadosPotassio.setCusto(bd4.doubleValue());
+                    
+                    dadosPotassio.setNomeAdicional("");
+                    dadosPotassio.setNomeAdicional2("");
+                    dadosPotassio.setValorAdicional(0);
+                    dadosPotassio.setValorAdicional2(0);
+                    
+                    break;
+                case "Sulfato de Potássio":
+                    qtdAplicar = new CorrecaoPotassio().calculaQuantidadeAplicar(eficiencia, FontePotassio.SULFATO_POTASSIO);
+                    BigDecimal bd5 = new BigDecimal(qtdAplicar).setScale(2, RoundingMode.HALF_EVEN);
+                    dadosPotassio.setQtdAplicar(bd5.doubleValue());
+                    
+                    custo = new CorrecaoPotassio().calculaCusto(Double.parseDouble(cxValorFontePotassio.getText().replace(",", ".")), qtdAplicar);
+                    BigDecimal bd6 = new BigDecimal(custo).setScale(2, RoundingMode.HALF_EVEN);
+                    dadosPotassio.setCusto(bd6.doubleValue());
+                    
+                    nutrientesAdicionais = new CorrecaoPotassio()
+                                            .getNutrientesAdicionais(qtdAplicar, FontePotassio.SULFATO_POTASSIO);
+                    
+                    nomeNutrienteAdicional1 = nutrientesAdicionais.stream().findFirst().get().getNome().toString();
+                    valorCorrecaoAdicional1 = nutrientesAdicionais.stream().findFirst().get().getCorrecaoAdicional();
+                    BigDecimal bd7 = new BigDecimal(valorCorrecaoAdicional1).setScale(1, RoundingMode.HALF_EVEN);
+                    dadosPotassio.setNomeAdicional(nomeNutrienteAdicional1);
+                    dadosPotassio.setValorAdicional(bd7.doubleValue());
+                    dadosPotassio.setNomeAdicional2("");
+                    dadosPotassio.setValorAdicional2(0);
+
+                    break;
+                case "Sulfato Potássio/Magnésio":
+                    qtdAplicar = new CorrecaoPotassio().calculaQuantidadeAplicar(eficiencia, FontePotassio.SULFATO_POTASSIO_MAGNESIO);
+                    BigDecimal bd8 = new BigDecimal(qtdAplicar).setScale(2, RoundingMode.HALF_EVEN);
+                    dadosPotassio.setQtdAplicar(bd8.doubleValue());
+                    
+                    custo = new CorrecaoPotassio().calculaCusto(Double.parseDouble(cxValorFontePotassio.getText().replace(",", ".")), qtdAplicar);
+                    BigDecimal bd9 = new BigDecimal(custo).setScale(2, RoundingMode.HALF_EVEN);
+                    dadosPotassio.setCusto(bd9.doubleValue());
+                    
+                    nutrientesAdicionais = new CorrecaoPotassio()
+                                            .getNutrientesAdicionais(qtdAplicar, FontePotassio.SULFATO_POTASSIO_MAGNESIO);
+                    
+                    nomeNutrienteAdicional1 = nutrientesAdicionais.stream().skip(0).findFirst().get().getNome().toString();
+                    valorCorrecaoAdicional1 = nutrientesAdicionais.stream().skip(0).findFirst().get().getCorrecaoAdicional();
+                    BigDecimal bd10 = new BigDecimal(valorCorrecaoAdicional1).setScale(1, RoundingMode.HALF_EVEN);
+                    nomeNutrienteAdicional2 = nutrientesAdicionais.stream().skip(1).findFirst().get().getNome().toString();
+                    valorCorrecaoAdicional2 = nutrientesAdicionais.stream().skip(1).findFirst().get().getCorrecaoAdicional();
+                    BigDecimal bd11 = new BigDecimal(valorCorrecaoAdicional2).setScale(1, RoundingMode.HALF_EVEN);
+                    dadosPotassio.setNomeAdicional(nomeNutrienteAdicional1);
+                    dadosPotassio.setValorAdicional(bd10.doubleValue());
+                    dadosPotassio.setNomeAdicional2(nomeNutrienteAdicional2);
+                    dadosPotassio.setValorAdicional2(bd11.doubleValue());
+                    
+                    break;
+                default:
+                    qtdAplicar = 0;
+                    custo = 0;
+                    break;
+            }   
+        }
+        
+        TelaCorrecaoPotassio cp = new TelaCorrecaoPotassio();
+        cp.setVisible(true);
+        cp.mostrarCorrecaoPotassio(dadosPotassio);
     }
 
 }
