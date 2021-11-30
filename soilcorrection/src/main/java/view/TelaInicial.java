@@ -34,6 +34,7 @@ public class TelaInicial extends javax.swing.JFrame {
     
     public TelaInicial() {
         initComponents();
+        meuScrollPane.getVerticalScrollBar().setUnitIncrement(10);
     }
 
     /**
@@ -45,7 +46,7 @@ public class TelaInicial extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane = new javax.swing.JScrollPane();
+        meuScrollPane = new javax.swing.JScrollPane();
         jPanel = new javax.swing.JPanel();
         pnPainelTitulo = new javax.swing.JPanel();
         rtTitulo = new javax.swing.JLabel();
@@ -104,7 +105,7 @@ public class TelaInicial extends javax.swing.JFrame {
         setTitle("Soil Correction");
         setPreferredSize(new java.awt.Dimension(1024, 768));
 
-        jScrollPane.setBorder(null);
+        meuScrollPane.setBorder(null);
 
         pnPainelTitulo.setPreferredSize(new java.awt.Dimension(1012, 120));
 
@@ -640,23 +641,23 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addGap(100, 100, 100))
         );
 
-        jScrollPane.setViewportView(jPanel);
+        meuScrollPane.setViewportView(jPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1024, Short.MAX_VALUE)
+            .addComponent(meuScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1024, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 2048, Short.MAX_VALUE)
+            .addComponent(meuScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 2048, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void btConsultarValoresIdeaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultarValoresIdeaisActionPerformed
         consultar();
     }//GEN-LAST:event_btConsultarValoresIdeaisActionPerformed
@@ -732,7 +733,7 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JTextField cxValorFontePotassio;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel;
-    private javax.swing.JScrollPane jScrollPane;
+    private javax.swing.JScrollPane meuScrollPane;
     private javax.swing.JPanel pnPainelCorrecaoFosforo;
     private javax.swing.JPanel pnPainelCorrecaoPotassio;
     private javax.swing.JPanel pnPainelTexturaDoSolo;
