@@ -4,14 +4,6 @@
  */
 package view;
 
-import converte.ConverteCMolcDm3EmMgDm3;
-import converte.ConverteMgDm3EmKgHa;
-import correcao_fonte_nutrientes.calcio_magnesio.CorrecaoCalcioMagnesio;
-import correcao_fonte_nutrientes.potassio.CorrecaoPotassio;
-import ctc.EquilibrioCorrecaoCTC;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-
 /**
  *
  * @author gabri
@@ -63,6 +55,8 @@ public class TelaCorrecaoCalcioMagnesio extends javax.swing.JFrame {
         rtValorFonte = new javax.swing.JLabel();
         cxValorFonte = new javax.swing.JTextField();
         cxFonte = new javax.swing.JTextField();
+        rtCorrecao = new javax.swing.JLabel();
+        cxCorrecao = new javax.swing.JTextField();
         rtFundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -83,13 +77,13 @@ public class TelaCorrecaoCalcioMagnesio extends javax.swing.JFrame {
         rtCalcio.setForeground(new java.awt.Color(0, 0, 0));
         rtCalcio.setText("Cálcio");
         getContentPane().add(rtCalcio);
-        rtCalcio.setBounds(125, 193, 51, 25);
+        rtCalcio.setBounds(125, 173, 51, 25);
 
         rtParticipacaoAtual.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtParticipacaoAtual.setForeground(new java.awt.Color(0, 0, 0));
         rtParticipacaoAtual.setText("Participação atual na CTC do solo:");
         getContentPane().add(rtParticipacaoAtual);
-        rtParticipacaoAtual.setBounds(125, 238, 268, 25);
+        rtParticipacaoAtual.setBounds(125, 218, 268, 25);
 
         cxParticipacaoAtualCalcio.setEditable(false);
         cxParticipacaoAtualCalcio.setBackground(new java.awt.Color(204, 204, 204));
@@ -97,19 +91,19 @@ public class TelaCorrecaoCalcioMagnesio extends javax.swing.JFrame {
         cxParticipacaoAtualCalcio.setForeground(new java.awt.Color(0, 0, 0));
         cxParticipacaoAtualCalcio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(cxParticipacaoAtualCalcio);
-        cxParticipacaoAtualCalcio.setBounds(411, 238, 150, 30);
+        cxParticipacaoAtualCalcio.setBounds(411, 218, 150, 30);
 
         rtUnidadeParticipacaoAtual.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtUnidadeParticipacaoAtual.setForeground(new java.awt.Color(0, 0, 0));
         rtUnidadeParticipacaoAtual.setText("%");
         getContentPane().add(rtUnidadeParticipacaoAtual);
-        rtUnidadeParticipacaoAtual.setBounds(579, 238, 15, 25);
+        rtUnidadeParticipacaoAtual.setBounds(579, 218, 15, 25);
 
         rtPorcentParticipacao.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtPorcentParticipacao.setForeground(new java.awt.Color(0, 0, 0));
         rtPorcentParticipacao.setText("% de participação de Cálcio na CTC, desejada:");
         getContentPane().add(rtPorcentParticipacao);
-        rtPorcentParticipacao.setBounds(125, 286, 361, 25);
+        rtPorcentParticipacao.setBounds(125, 266, 361, 25);
 
         cxPorcentParticipacao.setEditable(false);
         cxPorcentParticipacao.setBackground(new java.awt.Color(204, 204, 204));
@@ -117,25 +111,25 @@ public class TelaCorrecaoCalcioMagnesio extends javax.swing.JFrame {
         cxPorcentParticipacao.setForeground(new java.awt.Color(0, 0, 0));
         cxPorcentParticipacao.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(cxPorcentParticipacao);
-        cxPorcentParticipacao.setBounds(504, 286, 150, 30);
+        cxPorcentParticipacao.setBounds(504, 266, 150, 30);
 
         rtUnidadePorcentParticipacao.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtUnidadePorcentParticipacao.setForeground(new java.awt.Color(0, 0, 0));
         rtUnidadePorcentParticipacao.setText("%");
         getContentPane().add(rtUnidadePorcentParticipacao);
-        rtUnidadePorcentParticipacao.setBounds(672, 286, 15, 25);
+        rtUnidadePorcentParticipacao.setBounds(672, 266, 15, 25);
 
         rtMagnesio.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rtMagnesio.setForeground(new java.awt.Color(0, 0, 0));
         rtMagnesio.setText("Magnésio");
         getContentPane().add(rtMagnesio);
-        rtMagnesio.setBounds(125, 332, 83, 25);
+        rtMagnesio.setBounds(125, 312, 83, 25);
 
         rtParticipacaoAtual1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtParticipacaoAtual1.setForeground(new java.awt.Color(0, 0, 0));
         rtParticipacaoAtual1.setText("Participação atual na CTC do solo:");
         getContentPane().add(rtParticipacaoAtual1);
-        rtParticipacaoAtual1.setBounds(125, 377, 268, 25);
+        rtParticipacaoAtual1.setBounds(125, 357, 268, 25);
 
         cxParticipacaoAtualMagnesio.setEditable(false);
         cxParticipacaoAtualMagnesio.setBackground(new java.awt.Color(204, 204, 204));
@@ -143,25 +137,25 @@ public class TelaCorrecaoCalcioMagnesio extends javax.swing.JFrame {
         cxParticipacaoAtualMagnesio.setForeground(new java.awt.Color(0, 0, 0));
         cxParticipacaoAtualMagnesio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(cxParticipacaoAtualMagnesio);
-        cxParticipacaoAtualMagnesio.setBounds(411, 377, 150, 30);
+        cxParticipacaoAtualMagnesio.setBounds(411, 357, 150, 30);
 
         rtUnidadeParticipacaoAtual1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtUnidadeParticipacaoAtual1.setForeground(new java.awt.Color(0, 0, 0));
         rtUnidadeParticipacaoAtual1.setText("%");
         getContentPane().add(rtUnidadeParticipacaoAtual1);
-        rtUnidadeParticipacaoAtual1.setBounds(579, 377, 15, 25);
+        rtUnidadeParticipacaoAtual1.setBounds(579, 357, 15, 25);
 
         rtFonteCorretivo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtFonteCorretivo.setForeground(new java.awt.Color(0, 0, 0));
         rtFonteCorretivo.setText("Fonte de corretivo a usar:");
         getContentPane().add(rtFonteCorretivo);
-        rtFonteCorretivo.setBounds(125, 444, 201, 25);
+        rtFonteCorretivo.setBounds(125, 424, 201, 25);
 
         rtPRNT.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtPRNT.setForeground(new java.awt.Color(0, 0, 0));
         rtPRNT.setText("PRNT:");
         getContentPane().add(rtPRNT);
-        rtPRNT.setBounds(125, 492, 47, 25);
+        rtPRNT.setBounds(125, 472, 47, 25);
 
         cxPRNT.setEditable(false);
         cxPRNT.setBackground(new java.awt.Color(204, 204, 204));
@@ -169,19 +163,19 @@ public class TelaCorrecaoCalcioMagnesio extends javax.swing.JFrame {
         cxPRNT.setForeground(new java.awt.Color(0, 0, 0));
         cxPRNT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(cxPRNT);
-        cxPRNT.setBounds(190, 489, 150, 30);
+        cxPRNT.setBounds(190, 469, 150, 30);
 
         rtUnidadePRNT.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtUnidadePRNT.setForeground(new java.awt.Color(0, 0, 0));
         rtUnidadePRNT.setText("%");
         getContentPane().add(rtUnidadePRNT);
-        rtUnidadePRNT.setBounds(358, 492, 15, 25);
+        rtUnidadePRNT.setBounds(358, 472, 15, 25);
 
         rtTeorCao.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtTeorCao.setForeground(new java.awt.Color(0, 0, 0));
         rtTeorCao.setText("Teor de CaO do corretivo:");
         getContentPane().add(rtTeorCao);
-        rtTeorCao.setBounds(125, 540, 205, 25);
+        rtTeorCao.setBounds(125, 520, 205, 25);
 
         cxTeorCao.setEditable(false);
         cxTeorCao.setBackground(new java.awt.Color(204, 204, 204));
@@ -189,19 +183,19 @@ public class TelaCorrecaoCalcioMagnesio extends javax.swing.JFrame {
         cxTeorCao.setForeground(new java.awt.Color(0, 0, 0));
         cxTeorCao.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(cxTeorCao);
-        cxTeorCao.setBounds(348, 537, 150, 30);
+        cxTeorCao.setBounds(348, 517, 150, 30);
 
         rtUnidadeTeorCao.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtUnidadeTeorCao.setForeground(new java.awt.Color(0, 0, 0));
         rtUnidadeTeorCao.setText("%");
         getContentPane().add(rtUnidadeTeorCao);
-        rtUnidadeTeorCao.setBounds(516, 540, 15, 25);
+        rtUnidadeTeorCao.setBounds(516, 520, 15, 25);
 
         rtQuantidadeAplicar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtQuantidadeAplicar.setForeground(new java.awt.Color(0, 0, 0));
         rtQuantidadeAplicar.setText("Quantidade a aplicar:");
         getContentPane().add(rtQuantidadeAplicar);
-        rtQuantidadeAplicar.setBounds(125, 588, 167, 25);
+        rtQuantidadeAplicar.setBounds(125, 568, 167, 25);
 
         cxQuantidadeAplicar.setEditable(false);
         cxQuantidadeAplicar.setBackground(new java.awt.Color(204, 204, 204));
@@ -209,19 +203,19 @@ public class TelaCorrecaoCalcioMagnesio extends javax.swing.JFrame {
         cxQuantidadeAplicar.setForeground(new java.awt.Color(0, 0, 0));
         cxQuantidadeAplicar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(cxQuantidadeAplicar);
-        cxQuantidadeAplicar.setBounds(310, 585, 210, 30);
+        cxQuantidadeAplicar.setBounds(310, 565, 210, 30);
 
         rtUnidadeQuantidadeaplicar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtUnidadeQuantidadeaplicar.setForeground(new java.awt.Color(0, 0, 0));
         rtUnidadeQuantidadeaplicar.setText("Ton./ha");
         getContentPane().add(rtUnidadeQuantidadeaplicar);
-        rtUnidadeQuantidadeaplicar.setBounds(538, 588, 60, 25);
+        rtUnidadeQuantidadeaplicar.setBounds(538, 568, 60, 25);
 
         rtCusto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtCusto.setForeground(new java.awt.Color(0, 0, 0));
         rtCusto.setText("Custo - R$/ha:");
         getContentPane().add(rtCusto);
-        rtCusto.setBounds(125, 636, 114, 25);
+        rtCusto.setBounds(125, 616, 114, 25);
 
         cxCusto.setEditable(false);
         cxCusto.setBackground(new java.awt.Color(204, 204, 204));
@@ -229,25 +223,25 @@ public class TelaCorrecaoCalcioMagnesio extends javax.swing.JFrame {
         cxCusto.setForeground(new java.awt.Color(0, 0, 0));
         cxCusto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(cxCusto);
-        cxCusto.setBounds(257, 633, 210, 30);
+        cxCusto.setBounds(257, 613, 210, 30);
 
         rtCalcioIdeal.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtCalcioIdeal.setForeground(new java.awt.Color(0, 0, 0));
         rtCalcioIdeal.setText("(Ideal: 45% a 55%)");
         getContentPane().add(rtCalcioIdeal);
-        rtCalcioIdeal.setBounds(700, 288, 146, 25);
+        rtCalcioIdeal.setBounds(700, 268, 146, 25);
 
         rtMagnesioIdeal.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtMagnesioIdeal.setForeground(new java.awt.Color(0, 0, 0));
         rtMagnesioIdeal.setText("(Ideal: 10% a 15%)");
         getContentPane().add(rtMagnesioIdeal);
-        rtMagnesioIdeal.setBounds(610, 379, 146, 25);
+        rtMagnesioIdeal.setBounds(610, 359, 146, 25);
 
         rtValorFonte.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtValorFonte.setForeground(new java.awt.Color(0, 0, 0));
         rtValorFonte.setText("Valor/Ton (R$)");
         getContentPane().add(rtValorFonte);
-        rtValorFonte.setBounds(560, 444, 114, 25);
+        rtValorFonte.setBounds(560, 424, 114, 25);
 
         cxValorFonte.setEditable(false);
         cxValorFonte.setBackground(new java.awt.Color(204, 204, 204));
@@ -255,7 +249,7 @@ public class TelaCorrecaoCalcioMagnesio extends javax.swing.JFrame {
         cxValorFonte.setForeground(new java.awt.Color(0, 0, 0));
         cxValorFonte.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(cxValorFonte);
-        cxValorFonte.setBounds(690, 441, 150, 30);
+        cxValorFonte.setBounds(690, 421, 150, 30);
 
         cxFonte.setEditable(false);
         cxFonte.setBackground(new java.awt.Color(204, 204, 204));
@@ -264,7 +258,22 @@ public class TelaCorrecaoCalcioMagnesio extends javax.swing.JFrame {
         cxFonte.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         cxFonte.setPreferredSize(new java.awt.Dimension(207, 31));
         getContentPane().add(cxFonte);
-        cxFonte.setBounds(344, 441, 200, 30);
+        cxFonte.setBounds(344, 421, 200, 30);
+
+        rtCorrecao.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        rtCorrecao.setForeground(new java.awt.Color(0, 0, 0));
+        rtCorrecao.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rtCorrecao.setText("Essa correção fornecerá (kg/ha) :");
+        getContentPane().add(rtCorrecao);
+        rtCorrecao.setBounds(125, 660, 256, 25);
+
+        cxCorrecao.setEditable(false);
+        cxCorrecao.setBackground(new java.awt.Color(204, 204, 204));
+        cxCorrecao.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cxCorrecao.setForeground(new java.awt.Color(0, 0, 0));
+        cxCorrecao.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(cxCorrecao);
+        cxCorrecao.setBounds(400, 660, 350, 30);
 
         rtFundo.setIcon(new javax.swing.ImageIcon("C:\\Users\\gabri\\OneDrive\\Documentos\\UTFPR\\2021 - semestre 2\\Arquitetura de Software\\soilcorrectionCompleto\\soilcorrection\\src\\main\\java\\gui\\imagens\\background.png")); // NOI18N
         getContentPane().add(rtFundo);
@@ -287,6 +296,9 @@ public class TelaCorrecaoCalcioMagnesio extends javax.swing.JFrame {
         cxTeorCao.setText(Double.toString(dados.getTeorCorretivo()));
         cxQuantidadeAplicar.setText(Double.toString(dados.getQtdAplicar()));
         cxCusto.setText(Double.toString(dados.getCusto()));
+        if(dados.getFonte().equals("Gesso Agrícola")){
+            cxCorrecao.setText(dados.getNomeAdicional()+": "+dados.getValorAdicional());
+        }
     }
     
     /**
@@ -332,6 +344,7 @@ public class TelaCorrecaoCalcioMagnesio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField cxCorrecao;
     private javax.swing.JTextField cxCusto;
     private javax.swing.JTextField cxFonte;
     private javax.swing.JTextField cxPRNT;
@@ -343,6 +356,7 @@ public class TelaCorrecaoCalcioMagnesio extends javax.swing.JFrame {
     private javax.swing.JTextField cxValorFonte;
     private javax.swing.JLabel rtCalcio;
     private javax.swing.JLabel rtCalcioIdeal;
+    private javax.swing.JLabel rtCorrecao;
     private javax.swing.JLabel rtCusto;
     private javax.swing.JLabel rtFonteCorretivo;
     private javax.swing.JLabel rtFundo;

@@ -1198,7 +1198,6 @@ public class TelaInicial extends javax.swing.JFrame {
         dadosCalcio.setFonte(cbFonteCalcio.getSelectedItem().toString());
         dadosCalcio.setValorFonte(Double.parseDouble(cxValorFonteCalcio.getText().replace(",", ".")));
         dadosCalcio.setPrnt(Double.parseDouble(cxPRNT.getText().replace(",", ".")));
-        dadosCalcio.setTeorCorretivo(Double.parseDouble(cxTeorCorretivo.getText().replace(",", ".")));
         
         if(cbTexturaDoSolo.getSelectedItem().toString().equals("Solo Argiloso")){
             dadosCalcio.setCalcioIdeal("Ideal: 45% a 55%");
@@ -1229,13 +1228,13 @@ public class TelaInicial extends javax.swing.JFrame {
         dadosCalcio.setMagnesioSolo(bd2.doubleValue());
         double qtdAdicionadaPorHa =0;
         if(cbFonteFosforo.getSelectedItem().toString().equals("Superfosfato Simples")){
-            qtdAdicionadaPorHa = ((((dadosPotassio.getQtdAplicar() * 2.42 ) *0.28)  / 2.42)* 0.49924)/1000;
+            qtdAdicionadaPorHa = ((((dadosFosforo.getQtdAplicar() * 2.42 ) *0.28)  / 2.42)* 0.49924)/1000;
         }
         if(cbFonteFosforo.getSelectedItem().toString().equals("Superfosfato Triplo")){
-            qtdAdicionadaPorHa = ((((dadosPotassio.getQtdAplicar() * 2.42 ) *0.2)  / 2.42) * 0.33877)/1000;
+            qtdAdicionadaPorHa = ((((dadosFosforo.getQtdAplicar() * 2.42 ) *0.2)  / 2.42) * 0.33877)/1000;
         }
         if(cbFonteFosforo.getSelectedItem().toString().equals("MAP")){
-            qtdAdicionadaPorHa = ((((dadosPotassio.getQtdAplicar() * 2.42 ) *0.09)  / 2.42) * 0.0 )/1000;
+            qtdAdicionadaPorHa = ((((dadosFosforo.getQtdAplicar() * 2.42 ) *0.09)  / 2.42) * 0.0 )/1000;
         }
         
         double teorDeCao = ((Double.parseDouble(cxCalcioSolo.getText().replace(",", ".")) * Double.parseDouble(cxParticipacaoCalcioDesejada.getText().replace(",", "."))) / bd1.doubleValue())
@@ -1246,55 +1245,122 @@ public class TelaInicial extends javax.swing.JFrame {
         Set<NutrienteAdicional> nutrientesAdicionais;
         String nomeNutrienteAdicional = "";
         double valorNutrienteAdicional = 0;
+        double qtdCalcioTonelada = 0;
+        double teor = Double.parseDouble(cxTeorCorretivo.getText().replace(",", "."));
+        System.out.println(teor);
+        double qtdCalcioTotal = 0;
+        double qtdIncorporar = 0;
         
         switch(cbFonteCalcio.getSelectedItem().toString()){
             case "Calcário Dolomítico":
-                qtdAplicar = new CorrecaoCalcioMagnesio().calculaQuantidadeAplicar(teorDeCao, Double.parseDouble(cxPRNT.getText())/100);
+                if(teor < 0.001){
+                    teor = 30.4;
+                }
+                else{
+                    teor = teor;
+                }
+                dadosCalcio.setTeorCorretivo(teor);
+                
+                qtdCalcioTonelada = dadosCalcio.getTeorCorretivo() * 0.01783;
+                qtdCalcioTotal = qtdCalcioTonelada + qtdAdicionadaPorHa;
+                qtdIncorporar = teorDeCao / qtdCalcioTotal;
+                if(qtdIncorporar < 0.001){
+                    qtdIncorporar = 0.0;
+                }
+                
+                qtdAplicar = new CorrecaoCalcioMagnesio().calculaQuantidadeAplicar(qtdIncorporar, Double.parseDouble(cxPRNT.getText())/100);
                 BigDecimal bd3 = new BigDecimal(qtdAplicar).setScale(2, RoundingMode.HALF_EVEN);
                 dadosCalcio.setQtdAplicar(bd3.doubleValue());
                 
                 custo = new CorrecaoCalcioMagnesio().calculaCusto(Double.parseDouble(cxValorFonteCalcio.getText()), bd3.doubleValue());
                 BigDecimal bd4 = new BigDecimal(custo).setScale(2, RoundingMode.HALF_EVEN);
-                dadosCalcio.setCusto(bd4.doubleValue());
+                dadosCalcio.setCusto(bd4.doubleValue()*1000);
                 
                 dadosCalcio.setNomeAdicional(nomeNutrienteAdicional);
                 dadosCalcio.setValorAdicional(valorNutrienteAdicional);
                 
                 break;
             case "Calcário Calcítico":
-                qtdAplicar = new CorrecaoCalcioMagnesio().calculaQuantidadeAplicar(teorDeCao, Double.parseDouble(cxPRNT.getText())/100);
+                if(teor < 0.001){
+                    teor = 56;
+                }
+                else{
+                    teor = teor;
+                }
+                dadosCalcio.setTeorCorretivo(teor);
+                
+                qtdCalcioTonelada = dadosCalcio.getTeorCorretivo() * 0.01783;
+                qtdCalcioTotal = qtdCalcioTonelada + qtdAdicionadaPorHa;
+                qtdIncorporar = teorDeCao / qtdCalcioTotal;
+                if(qtdIncorporar < 0.001){
+                    qtdIncorporar = 0.0;
+                }
+                
+                qtdAplicar = new CorrecaoCalcioMagnesio().calculaQuantidadeAplicar(qtdIncorporar, Double.parseDouble(cxPRNT.getText())/100);
                 BigDecimal bd5 = new BigDecimal(qtdAplicar).setScale(2, RoundingMode.HALF_EVEN);
                 dadosCalcio.setQtdAplicar(bd5.doubleValue());
                 
                 custo = new CorrecaoCalcioMagnesio().calculaCusto(Double.parseDouble(cxValorFonteCalcio.getText()), bd5.doubleValue());
                 BigDecimal bd6 = new BigDecimal(custo).setScale(2, RoundingMode.HALF_EVEN);
-                dadosCalcio.setCusto(bd6.doubleValue());
+                dadosCalcio.setCusto(bd6.doubleValue()*1000);
                 
                 dadosCalcio.setNomeAdicional(nomeNutrienteAdicional);
                 dadosCalcio.setValorAdicional(valorNutrienteAdicional);
                 
                 break;
             case "Calcário de Concha":
-                qtdAplicar = new CorrecaoCalcioMagnesio().calculaQuantidadeAplicar(teorDeCao, Double.parseDouble(cxPRNT.getText())/100);
+                if(teor < 0.001){
+                    teor = 54;
+                }
+                else{
+                    teor = teor;
+                }
+                dadosCalcio.setTeorCorretivo(teor);
+                qtdCalcioTonelada = dadosCalcio.getTeorCorretivo() * 0.01783;
+                qtdCalcioTotal = qtdCalcioTonelada + qtdAdicionadaPorHa;
+                qtdIncorporar = teorDeCao / qtdCalcioTotal;
+                if(qtdIncorporar < 0.001){
+                    qtdIncorporar = 0.0;
+                }
+                
+                qtdAplicar = new CorrecaoCalcioMagnesio().calculaQuantidadeAplicar(qtdIncorporar, Double.parseDouble(cxPRNT.getText())/100);
                 BigDecimal bd7 = new BigDecimal(qtdAplicar).setScale(2, RoundingMode.HALF_EVEN);
                 dadosCalcio.setQtdAplicar(bd7.doubleValue());
                 
                 custo = new CorrecaoCalcioMagnesio().calculaCusto(Double.parseDouble(cxValorFonteCalcio.getText()), bd7.doubleValue());
                 BigDecimal bd8 = new BigDecimal(custo).setScale(2, RoundingMode.HALF_EVEN);
-                dadosCalcio.setCusto(bd8.doubleValue());
+                dadosCalcio.setCusto(bd8.doubleValue()*1000);
                 
                 dadosCalcio.setNomeAdicional(nomeNutrienteAdicional);
                 dadosCalcio.setValorAdicional(valorNutrienteAdicional);
                 
                 break;
             case "Gesso Agrícola":
-                qtdAplicar = new CorrecaoCalcioMagnesio().calculaQuantidadeAplicar(teorDeCao, Double.parseDouble(cxPRNT.getText())/100);
+                if(teor < 0.001){
+                    teor = 29;
+                }
+                else{
+                    teor = teor;
+                }
+                dadosCalcio.setTeorCorretivo(teor);
+                
+                System.out.println(dadosCalcio.getTeorCorretivo());
+                
+                qtdCalcioTonelada = dadosCalcio.getTeorCorretivo() * 0.01783;
+                qtdCalcioTotal = qtdCalcioTonelada + qtdAdicionadaPorHa;
+                qtdIncorporar = teorDeCao / qtdCalcioTotal;
+                System.out.println(qtdIncorporar);
+                if(qtdIncorporar < 0.001){
+                    qtdIncorporar = 0.0;
+                }
+                
+                qtdAplicar = new CorrecaoCalcioMagnesio().calculaQuantidadeAplicar(qtdIncorporar, Double.parseDouble(cxPRNT.getText())/100);
                 BigDecimal bd9 = new BigDecimal(qtdAplicar).setScale(2, RoundingMode.HALF_EVEN);
                 dadosCalcio.setQtdAplicar(bd9.doubleValue());
                 
                 custo = new CorrecaoCalcioMagnesio().calculaCusto(Double.parseDouble(cxValorFonteCalcio.getText()), bd9.doubleValue());
                 BigDecimal bd10 = new BigDecimal(custo).setScale(2, RoundingMode.HALF_EVEN);
-                dadosCalcio.setCusto(bd10.doubleValue());
+                dadosCalcio.setCusto(bd10.doubleValue()*1000);
                 
                 nutrientesAdicionais = new CorrecaoCalcioMagnesio().getNutrientesAdicionais(qtdAplicar, FonteCalcioMagnesio.GESSO_AGRICOLA);
                 
@@ -1306,26 +1372,56 @@ public class TelaInicial extends javax.swing.JFrame {
                 
                 break;
             case "Hidróxido de Cálcio":
-                qtdAplicar = new CorrecaoCalcioMagnesio().calculaQuantidadeAplicar(teorDeCao, Double.parseDouble(cxPRNT.getText())/100);
+                if(teor < 0.001){
+                    teor = 75.5;
+                }
+                else{
+                    teor = teor;
+                }
+                dadosCalcio.setTeorCorretivo(teor);
+                
+                qtdCalcioTonelada = dadosCalcio.getTeorCorretivo() * 0.01783;
+                qtdCalcioTotal = qtdCalcioTonelada + qtdAdicionadaPorHa;
+                qtdIncorporar = teorDeCao / qtdCalcioTotal;
+                if(qtdIncorporar < 0.001){
+                    qtdIncorporar = 0.0;
+                }
+                
+                qtdAplicar = new CorrecaoCalcioMagnesio().calculaQuantidadeAplicar(qtdIncorporar, Double.parseDouble(cxPRNT.getText())/100);
                 BigDecimal bd11 = new BigDecimal(qtdAplicar).setScale(2, RoundingMode.HALF_EVEN);
                 dadosCalcio.setQtdAplicar(bd11.doubleValue());
                 
                 custo = new CorrecaoCalcioMagnesio().calculaCusto(Double.parseDouble(cxValorFonteCalcio.getText()), bd11.doubleValue());
                 BigDecimal bd12 = new BigDecimal(custo).setScale(2, RoundingMode.HALF_EVEN);
-                dadosCalcio.setCusto(bd12.doubleValue());
+                dadosCalcio.setCusto(bd12.doubleValue()*1000);
                 
                 dadosCalcio.setNomeAdicional(nomeNutrienteAdicional);
                 dadosCalcio.setValorAdicional(valorNutrienteAdicional);
                 
                 break;
             case "Calcário Magnesiano":
-                qtdAplicar = new CorrecaoCalcioMagnesio().calculaQuantidadeAplicar(teorDeCao, Double.parseDouble(cxPRNT.getText())/100);
+                if(teor < 0.001){
+                    teor = 35;
+                }
+                else{
+                    teor = teor;
+                }
+                dadosCalcio.setTeorCorretivo(teor);
+                
+                qtdCalcioTonelada = dadosCalcio.getTeorCorretivo() * 0.01783;
+                qtdCalcioTotal = qtdCalcioTonelada + qtdAdicionadaPorHa;
+                qtdIncorporar = teorDeCao / qtdCalcioTotal;
+                if(qtdIncorporar < 0.001){
+                    qtdIncorporar = 0.0;
+                }
+                
+                qtdAplicar = new CorrecaoCalcioMagnesio().calculaQuantidadeAplicar(qtdIncorporar, Double.parseDouble(cxPRNT.getText())/100);
                 BigDecimal bd13 = new BigDecimal(qtdAplicar).setScale(2, RoundingMode.HALF_EVEN);
                 dadosCalcio.setQtdAplicar(bd13.doubleValue());
                 
                 custo = new CorrecaoCalcioMagnesio().calculaCusto(Double.parseDouble(cxValorFonteCalcio.getText()), bd13.doubleValue());
                 BigDecimal bd14 = new BigDecimal(custo).setScale(2, RoundingMode.HALF_EVEN);
-                dadosCalcio.setCusto(bd14.doubleValue());
+                dadosCalcio.setCusto(bd14.doubleValue()*1000);
                 
                 dadosCalcio.setNomeAdicional(nomeNutrienteAdicional);
                 dadosCalcio.setValorAdicional(valorNutrienteAdicional);

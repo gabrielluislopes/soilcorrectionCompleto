@@ -4,17 +4,6 @@
  */
 package view;
 
-import converte.ConverteCMolcDm3EmMgDm3;
-import converte.ConverteKgHaEmK2O;
-import converte.ConverteMgDm3EmKgHa;
-import correcao_fonte_nutrientes.NutrienteAdicional;
-import correcao_fonte_nutrientes.potassio.CorrecaoPotassio;
-import correcao_fonte_nutrientes.potassio.FontePotassio;
-import ctc.EquilibrioCorrecaoCTC;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.util.Set;
-
 /**
  *
  * @author gabri
