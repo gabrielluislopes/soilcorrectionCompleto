@@ -9,6 +9,8 @@ import converte.ConverteKgHaEmK2O;
 import converte.ConverteKgHaEmP2O5;
 import converte.ConverteMgDm3EmKgHa;
 import correcao_fonte_nutrientes.NutrienteAdicional;
+import correcao_fonte_nutrientes.calcio_magnesio.CorrecaoCalcioMagnesio;
+import correcao_fonte_nutrientes.calcio_magnesio.FonteCalcioMagnesio;
 import correcao_fonte_nutrientes.fosforo.CorrecaoFosforo;
 import correcao_fonte_nutrientes.fosforo.FonteFosforo;
 import correcao_fonte_nutrientes.potassio.CorrecaoPotassio;
@@ -31,6 +33,7 @@ public class TelaInicial extends javax.swing.JFrame {
     
     DadosCorrecaoFosforo dadosFosforo = new DadosCorrecaoFosforo();
     DadosCorrecaoPotassio dadosPotassio = new DadosCorrecaoPotassio();
+    DadosCorrecaoCalcioMagnesio dadosCalcio = new DadosCorrecaoCalcioMagnesio();
     
     public TelaInicial() {
         initComponents();
@@ -99,7 +102,21 @@ public class TelaInicial extends javax.swing.JFrame {
         cbFontePotassio = new javax.swing.JComboBox<>();
         rtValorFontePotassio = new javax.swing.JLabel();
         cxValorFontePotassio = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btEnviarCorrecaoPotassio = new javax.swing.JButton();
+        pnPainelCorrecaoCalcioMagnesio = new javax.swing.JPanel();
+        rtCorrecaoCalcioMagnesio = new javax.swing.JLabel();
+        rtParticipacaoCalcioDesejada = new javax.swing.JLabel();
+        cxParticipacaoCalcioDesejada = new javax.swing.JTextField();
+        rtFonteCalcio = new javax.swing.JLabel();
+        cbFonteCalcio = new javax.swing.JComboBox<>();
+        rtValorFonteCalcio = new javax.swing.JLabel();
+        cxValorFonteCalcio = new javax.swing.JTextField();
+        rtPRNT = new javax.swing.JLabel();
+        cxPRNT = new javax.swing.JTextField();
+        rtTeorCorretivo = new javax.swing.JLabel();
+        cxTeorCorretivo = new javax.swing.JTextField();
+        rtInfoTeorCorretivo = new javax.swing.JLabel();
+        btEnviarCorrecaoCalcioMagnesio = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Soil Correction");
@@ -552,14 +569,14 @@ public class TelaInicial extends javax.swing.JFrame {
         cxValorFontePotassio.setForeground(new java.awt.Color(0, 0, 0));
         cxValorFontePotassio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Enviar correção potássio");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btEnviarCorrecaoPotassio.setBackground(new java.awt.Color(255, 255, 255));
+        btEnviarCorrecaoPotassio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btEnviarCorrecaoPotassio.setForeground(new java.awt.Color(0, 0, 0));
+        btEnviarCorrecaoPotassio.setText("Enviar correção potássio");
+        btEnviarCorrecaoPotassio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btEnviarCorrecaoPotassio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btEnviarCorrecaoPotassioActionPerformed(evt);
             }
         });
 
@@ -589,7 +606,7 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnPainelCorrecaoPotassioLayout.createSequentialGroup()
                 .addGap(410, 410, 410)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btEnviarCorrecaoPotassio, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(410, 410, 410))
         );
         pnPainelCorrecaoPotassioLayout.setVerticalGroup(
@@ -608,7 +625,152 @@ public class TelaInicial extends javax.swing.JFrame {
                     .addComponent(rtValorFontePotassio)
                     .addComponent(cxValorFontePotassio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btEnviarCorrecaoPotassio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(42, Short.MAX_VALUE))
+        );
+
+        rtCorrecaoCalcioMagnesio.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        rtCorrecaoCalcioMagnesio.setForeground(new java.awt.Color(0, 0, 0));
+        rtCorrecaoCalcioMagnesio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rtCorrecaoCalcioMagnesio.setText("Correção Cálcio/Magnésio");
+
+        rtParticipacaoCalcioDesejada.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rtParticipacaoCalcioDesejada.setForeground(new java.awt.Color(0, 0, 0));
+        rtParticipacaoCalcioDesejada.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rtParticipacaoCalcioDesejada.setText("% de participação de Cálcio na CTC, desejada:");
+
+        cxParticipacaoCalcioDesejada.setBackground(new java.awt.Color(255, 255, 255));
+        cxParticipacaoCalcioDesejada.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cxParticipacaoCalcioDesejada.setForeground(new java.awt.Color(0, 0, 0));
+        cxParticipacaoCalcioDesejada.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        rtFonteCalcio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rtFonteCalcio.setForeground(new java.awt.Color(0, 0, 0));
+        rtFonteCalcio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rtFonteCalcio.setText("Fonte de corretivo a usar:");
+
+        cbFonteCalcio.setBackground(new java.awt.Color(255, 255, 255));
+        cbFonteCalcio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cbFonteCalcio.setForeground(new java.awt.Color(0, 0, 0));
+        cbFonteCalcio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Calcário Dolomítico", "Calcário Calcítico", "Calcário de Concha", "Gesso Agrícola", "Hidróxido de Cálcio", "Calcário Magnesiano" }));
+        cbFonteCalcio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        rtValorFonteCalcio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rtValorFonteCalcio.setForeground(new java.awt.Color(0, 0, 0));
+        rtValorFonteCalcio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rtValorFonteCalcio.setText("Valor/Ton. (R$)");
+
+        cxValorFonteCalcio.setBackground(new java.awt.Color(255, 255, 255));
+        cxValorFonteCalcio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cxValorFonteCalcio.setForeground(new java.awt.Color(0, 0, 0));
+        cxValorFonteCalcio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        rtPRNT.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rtPRNT.setForeground(new java.awt.Color(0, 0, 0));
+        rtPRNT.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rtPRNT.setText("PRNT: %");
+
+        cxPRNT.setBackground(new java.awt.Color(255, 255, 255));
+        cxPRNT.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cxPRNT.setForeground(new java.awt.Color(0, 0, 0));
+        cxPRNT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        rtTeorCorretivo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rtTeorCorretivo.setForeground(new java.awt.Color(0, 0, 0));
+        rtTeorCorretivo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rtTeorCorretivo.setText("Teor de CaO do corretivo: %");
+
+        cxTeorCorretivo.setBackground(new java.awt.Color(255, 255, 255));
+        cxTeorCorretivo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cxTeorCorretivo.setForeground(new java.awt.Color(0, 0, 0));
+        cxTeorCorretivo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        rtInfoTeorCorretivo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rtInfoTeorCorretivo.setForeground(new java.awt.Color(0, 0, 0));
+        rtInfoTeorCorretivo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rtInfoTeorCorretivo.setText("Se não conhecer o teor de CaO do corretivo informar o valor 0");
+
+        btEnviarCorrecaoCalcioMagnesio.setBackground(new java.awt.Color(255, 255, 255));
+        btEnviarCorrecaoCalcioMagnesio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btEnviarCorrecaoCalcioMagnesio.setForeground(new java.awt.Color(0, 0, 0));
+        btEnviarCorrecaoCalcioMagnesio.setText("Enviar correção cálcio/magnésio");
+        btEnviarCorrecaoCalcioMagnesio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btEnviarCorrecaoCalcioMagnesio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEnviarCorrecaoCalcioMagnesioActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnPainelCorrecaoCalcioMagnesioLayout = new javax.swing.GroupLayout(pnPainelCorrecaoCalcioMagnesio);
+        pnPainelCorrecaoCalcioMagnesio.setLayout(pnPainelCorrecaoCalcioMagnesioLayout);
+        pnPainelCorrecaoCalcioMagnesioLayout.setHorizontalGroup(
+            pnPainelCorrecaoCalcioMagnesioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnPainelCorrecaoCalcioMagnesioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(rtCorrecaoCalcioMagnesio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(pnPainelCorrecaoCalcioMagnesioLayout.createSequentialGroup()
+                .addGroup(pnPainelCorrecaoCalcioMagnesioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnPainelCorrecaoCalcioMagnesioLayout.createSequentialGroup()
+                        .addGroup(pnPainelCorrecaoCalcioMagnesioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnPainelCorrecaoCalcioMagnesioLayout.createSequentialGroup()
+                                .addGap(272, 272, 272)
+                                .addComponent(rtParticipacaoCalcioDesejada)
+                                .addGap(50, 50, 50)
+                                .addComponent(cxParticipacaoCalcioDesejada, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnPainelCorrecaoCalcioMagnesioLayout.createSequentialGroup()
+                                .addGap(159, 159, 159)
+                                .addComponent(rtFonteCalcio)
+                                .addGap(42, 42, 42)
+                                .addComponent(cbFonteCalcio, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(58, 58, 58)
+                                .addComponent(rtValorFonteCalcio)
+                                .addGap(42, 42, 42)
+                                .addComponent(cxValorFonteCalcio, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnPainelCorrecaoCalcioMagnesioLayout.createSequentialGroup()
+                                .addGap(385, 385, 385)
+                                .addComponent(rtPRNT)
+                                .addGap(50, 50, 50)
+                                .addComponent(cxPRNT, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnPainelCorrecaoCalcioMagnesioLayout.createSequentialGroup()
+                                .addGap(324, 324, 324)
+                                .addComponent(rtTeorCorretivo)
+                                .addGap(50, 50, 50)
+                                .addComponent(cxTeorCorretivo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(rtInfoTeorCorretivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(pnPainelCorrecaoCalcioMagnesioLayout.createSequentialGroup()
+                .addGap(385, 385, 385)
+                .addComponent(btEnviarCorrecaoCalcioMagnesio, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(385, 385, 385))
+        );
+        pnPainelCorrecaoCalcioMagnesioLayout.setVerticalGroup(
+            pnPainelCorrecaoCalcioMagnesioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnPainelCorrecaoCalcioMagnesioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(rtCorrecaoCalcioMagnesio, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(pnPainelCorrecaoCalcioMagnesioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rtParticipacaoCalcioDesejada)
+                    .addComponent(cxParticipacaoCalcioDesejada, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnPainelCorrecaoCalcioMagnesioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rtFonteCalcio)
+                    .addComponent(cbFonteCalcio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rtValorFonteCalcio)
+                    .addComponent(cxValorFonteCalcio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnPainelCorrecaoCalcioMagnesioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rtPRNT)
+                    .addComponent(cxPRNT, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnPainelCorrecaoCalcioMagnesioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rtTeorCorretivo)
+                    .addComponent(cxTeorCorretivo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(rtInfoTeorCorretivo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btEnviarCorrecaoCalcioMagnesio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(42, Short.MAX_VALUE))
         );
 
@@ -622,6 +784,7 @@ public class TelaInicial extends javax.swing.JFrame {
                     .addComponent(pnPainelTexturaDoSolo, javax.swing.GroupLayout.PREFERRED_SIZE, 1026, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pnPainelValores, javax.swing.GroupLayout.PREFERRED_SIZE, 1014, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(pnPainelCorrecaoCalcioMagnesio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(pnPainelCorrecaoPotassio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(pnPainelCorrecaoFosforo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(155, Short.MAX_VALUE))
@@ -638,7 +801,9 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addComponent(pnPainelCorrecaoFosforo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnPainelCorrecaoPotassio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(100, 100, 100))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnPainelCorrecaoCalcioMagnesio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         meuScrollPane.setViewportView(jPanel);
@@ -666,9 +831,13 @@ public class TelaInicial extends javax.swing.JFrame {
         enviarCorrecaoFosforo();
     }//GEN-LAST:event_btEnviarCorrecaoFosforoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btEnviarCorrecaoPotassioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnviarCorrecaoPotassioActionPerformed
         enviarCorrecaoPotassio();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btEnviarCorrecaoPotassioActionPerformed
+
+    private void btEnviarCorrecaoCalcioMagnesioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnviarCorrecaoCalcioMagnesioActionPerformed
+        enviarCorrecaoCalcioMagnesio();
+    }//GEN-LAST:event_btEnviarCorrecaoCalcioMagnesioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -707,7 +876,10 @@ public class TelaInicial extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btConsultarValoresIdeais;
+    private javax.swing.JButton btEnviarCorrecaoCalcioMagnesio;
     private javax.swing.JButton btEnviarCorrecaoFosforo;
+    private javax.swing.JButton btEnviarCorrecaoPotassio;
+    private javax.swing.JComboBox<String> cbFonteCalcio;
     private javax.swing.JComboBox<String> cbFonteFosforo;
     private javax.swing.JComboBox<String> cbFontePotassio;
     private javax.swing.JComboBox<String> cbTexturaDoSolo;
@@ -725,15 +897,19 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JTextField cxHalSolo;
     private javax.swing.JTextField cxMagnesioIdeal;
     private javax.swing.JTextField cxMagnesioSolo;
+    private javax.swing.JTextField cxPRNT;
+    private javax.swing.JTextField cxParticipacaoCalcioDesejada;
     private javax.swing.JTextField cxParticipacaoPotassioDesejada;
     private javax.swing.JTextField cxPotassioIdeal;
     private javax.swing.JTextField cxPotassioSolo;
+    private javax.swing.JTextField cxTeorCorretivo;
     private javax.swing.JTextField cxTeorFosforoAtingir;
+    private javax.swing.JTextField cxValorFonteCalcio;
     private javax.swing.JTextField cxValorFonteFosforo;
     private javax.swing.JTextField cxValorFontePotassio;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel;
     private javax.swing.JScrollPane meuScrollPane;
+    private javax.swing.JPanel pnPainelCorrecaoCalcioMagnesio;
     private javax.swing.JPanel pnPainelCorrecaoFosforo;
     private javax.swing.JPanel pnPainelCorrecaoPotassio;
     private javax.swing.JPanel pnPainelTexturaDoSolo;
@@ -741,23 +917,30 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JPanel pnPainelValores;
     private javax.swing.JLabel rtAluminio;
     private javax.swing.JLabel rtCalcio;
+    private javax.swing.JLabel rtCorrecaoCalcioMagnesio;
     private javax.swing.JLabel rtCorrecaoFosforo;
     private javax.swing.JLabel rtCorrecaoPotassio;
     private javax.swing.JLabel rtEficienciaFosforo;
     private javax.swing.JLabel rtEnxofre;
+    private javax.swing.JLabel rtFonteCalcio;
     private javax.swing.JLabel rtFontePotassio;
     private javax.swing.JLabel rtFosforo;
     private javax.swing.JLabel rtHal;
     private javax.swing.JLabel rtIdeal;
+    private javax.swing.JLabel rtInfoTeorCorretivo;
     private javax.swing.JLabel rtMagnesio;
     private javax.swing.JLabel rtNoSolo;
     private javax.swing.JLabel rtObservacao;
+    private javax.swing.JLabel rtPRNT;
+    private javax.swing.JLabel rtParticipacaoCalcioDesejada;
     private javax.swing.JLabel rtParticipacaoPotassioDesejada;
     private javax.swing.JLabel rtPotassio;
     private javax.swing.JLabel rtRecomendacaoEficienciaFosforo;
+    private javax.swing.JLabel rtTeorCorretivo;
     private javax.swing.JLabel rtTeorFosforoAtingir;
     private javax.swing.JLabel rtTexturaDoSolo;
     private javax.swing.JLabel rtTitulo;
+    private javax.swing.JLabel rtValorFonteCalcio;
     private javax.swing.JLabel rtValorFonteFosforo;
     private javax.swing.JLabel rtValorFontePotassio;
     // End of variables declaration//GEN-END:variables
@@ -1008,6 +1191,155 @@ public class TelaInicial extends javax.swing.JFrame {
         TelaCorrecaoPotassio cp = new TelaCorrecaoPotassio();
         cp.setVisible(true);
         cp.mostrarCorrecaoPotassio(dadosPotassio);
+    }
+    
+    public void enviarCorrecaoCalcioMagnesio(){
+        dadosCalcio.setCalcioDesejado(Double.parseDouble(cxParticipacaoCalcioDesejada.getText().replace(",", ".")));
+        dadosCalcio.setFonte(cbFonteCalcio.getSelectedItem().toString());
+        dadosCalcio.setValorFonte(Double.parseDouble(cxValorFonteCalcio.getText().replace(",", ".")));
+        dadosCalcio.setPrnt(Double.parseDouble(cxPRNT.getText().replace(",", ".")));
+        dadosCalcio.setTeorCorretivo(Double.parseDouble(cxTeorCorretivo.getText().replace(",", ".")));
+        
+        if(cbTexturaDoSolo.getSelectedItem().toString().equals("Solo Argiloso")){
+            dadosCalcio.setCalcioIdeal("Ideal: 45% a 55%");
+            dadosCalcio.setMagnesioIdeal("Ideal: 10% a 15%");
+        }
+        if(cbTexturaDoSolo.getSelectedItem().toString().equals("Solo Textura Média")){
+            dadosCalcio.setCalcioIdeal("Ideal: 35% a 40%");
+            dadosCalcio.setMagnesioIdeal("Ideal: 8% a 12%");
+        }
+        
+        
+        double calcioCTC = (Double.parseDouble(cxCalcioSolo.getText().replace(",", "."))/
+                            new EquilibrioCorrecaoCTC().calculaCTCCmol(
+                                Double.parseDouble(cxPotassioSolo.getText().replace(",", ".")), 
+                                Double.parseDouble(cxCalcioSolo.getText().replace(",", ".")), 
+                                Double.parseDouble(cxMagnesioSolo.getText().replace(",", ".")), 
+                                Double.parseDouble(cxHalSolo.getText().replace(",", ".")))) * 100;
+        BigDecimal bd1 = new BigDecimal(calcioCTC).setScale(1, RoundingMode.HALF_EVEN);
+        dadosCalcio.setCalcioSolo(bd1.doubleValue());
+
+        double magnesioCTC = (Double.parseDouble(cxMagnesioSolo.getText().replace(",", ".")) /
+                             new EquilibrioCorrecaoCTC().calculaCTCCmol(
+                                Double.parseDouble(cxPotassioSolo.getText().replace(",", ".")), 
+                                Double.parseDouble(cxCalcioSolo.getText().replace(",", ".")), 
+                                Double.parseDouble(cxMagnesioSolo.getText().replace(",", ".")), 
+                                Double.parseDouble(cxHalSolo.getText().replace(",", ".")))) * 100;
+        BigDecimal bd2 = new BigDecimal(magnesioCTC).setScale(1, RoundingMode.HALF_EVEN);
+        dadosCalcio.setMagnesioSolo(bd2.doubleValue());
+        double qtdAdicionadaPorHa =0;
+        if(cbFonteFosforo.getSelectedItem().toString().equals("Superfosfato Simples")){
+            qtdAdicionadaPorHa = ((((dadosPotassio.getQtdAplicar() * 2.42 ) *0.28)  / 2.42)* 0.49924)/1000;
+        }
+        if(cbFonteFosforo.getSelectedItem().toString().equals("Superfosfato Triplo")){
+            qtdAdicionadaPorHa = ((((dadosPotassio.getQtdAplicar() * 2.42 ) *0.2)  / 2.42) * 0.33877)/1000;
+        }
+        if(cbFonteFosforo.getSelectedItem().toString().equals("MAP")){
+            qtdAdicionadaPorHa = ((((dadosPotassio.getQtdAplicar() * 2.42 ) *0.09)  / 2.42) * 0.0 )/1000;
+        }
+        
+        double teorDeCao = ((Double.parseDouble(cxCalcioSolo.getText().replace(",", ".")) * Double.parseDouble(cxParticipacaoCalcioDesejada.getText().replace(",", "."))) / bd1.doubleValue())
+                                -Double.parseDouble(cxCalcioSolo.getText().replace(",", "."))-qtdAdicionadaPorHa;
+        
+        double qtdAplicar;
+        double custo;
+        Set<NutrienteAdicional> nutrientesAdicionais;
+        String nomeNutrienteAdicional = "";
+        double valorNutrienteAdicional = 0;
+        
+        switch(cbFonteCalcio.getSelectedItem().toString()){
+            case "Calcário Dolomítico":
+                qtdAplicar = new CorrecaoCalcioMagnesio().calculaQuantidadeAplicar(teorDeCao, Double.parseDouble(cxPRNT.getText())/100);
+                BigDecimal bd3 = new BigDecimal(qtdAplicar).setScale(2, RoundingMode.HALF_EVEN);
+                dadosCalcio.setQtdAplicar(bd3.doubleValue());
+                
+                custo = new CorrecaoCalcioMagnesio().calculaCusto(Double.parseDouble(cxValorFonteCalcio.getText()), bd3.doubleValue());
+                BigDecimal bd4 = new BigDecimal(custo).setScale(2, RoundingMode.HALF_EVEN);
+                dadosCalcio.setCusto(bd4.doubleValue());
+                
+                dadosCalcio.setNomeAdicional(nomeNutrienteAdicional);
+                dadosCalcio.setValorAdicional(valorNutrienteAdicional);
+                
+                break;
+            case "Calcário Calcítico":
+                qtdAplicar = new CorrecaoCalcioMagnesio().calculaQuantidadeAplicar(teorDeCao, Double.parseDouble(cxPRNT.getText())/100);
+                BigDecimal bd5 = new BigDecimal(qtdAplicar).setScale(2, RoundingMode.HALF_EVEN);
+                dadosCalcio.setQtdAplicar(bd5.doubleValue());
+                
+                custo = new CorrecaoCalcioMagnesio().calculaCusto(Double.parseDouble(cxValorFonteCalcio.getText()), bd5.doubleValue());
+                BigDecimal bd6 = new BigDecimal(custo).setScale(2, RoundingMode.HALF_EVEN);
+                dadosCalcio.setCusto(bd6.doubleValue());
+                
+                dadosCalcio.setNomeAdicional(nomeNutrienteAdicional);
+                dadosCalcio.setValorAdicional(valorNutrienteAdicional);
+                
+                break;
+            case "Calcário de Concha":
+                qtdAplicar = new CorrecaoCalcioMagnesio().calculaQuantidadeAplicar(teorDeCao, Double.parseDouble(cxPRNT.getText())/100);
+                BigDecimal bd7 = new BigDecimal(qtdAplicar).setScale(2, RoundingMode.HALF_EVEN);
+                dadosCalcio.setQtdAplicar(bd7.doubleValue());
+                
+                custo = new CorrecaoCalcioMagnesio().calculaCusto(Double.parseDouble(cxValorFonteCalcio.getText()), bd7.doubleValue());
+                BigDecimal bd8 = new BigDecimal(custo).setScale(2, RoundingMode.HALF_EVEN);
+                dadosCalcio.setCusto(bd8.doubleValue());
+                
+                dadosCalcio.setNomeAdicional(nomeNutrienteAdicional);
+                dadosCalcio.setValorAdicional(valorNutrienteAdicional);
+                
+                break;
+            case "Gesso Agrícola":
+                qtdAplicar = new CorrecaoCalcioMagnesio().calculaQuantidadeAplicar(teorDeCao, Double.parseDouble(cxPRNT.getText())/100);
+                BigDecimal bd9 = new BigDecimal(qtdAplicar).setScale(2, RoundingMode.HALF_EVEN);
+                dadosCalcio.setQtdAplicar(bd9.doubleValue());
+                
+                custo = new CorrecaoCalcioMagnesio().calculaCusto(Double.parseDouble(cxValorFonteCalcio.getText()), bd9.doubleValue());
+                BigDecimal bd10 = new BigDecimal(custo).setScale(2, RoundingMode.HALF_EVEN);
+                dadosCalcio.setCusto(bd10.doubleValue());
+                
+                nutrientesAdicionais = new CorrecaoCalcioMagnesio().getNutrientesAdicionais(qtdAplicar, FonteCalcioMagnesio.GESSO_AGRICOLA);
+                
+                nomeNutrienteAdicional = nutrientesAdicionais.stream().skip(0).findFirst().get().getNome().toString();
+                valorNutrienteAdicional = nutrientesAdicionais.stream().skip(0).findFirst().get().getCorrecaoAdicional();
+                BigDecimal bd15 = new BigDecimal(custo).setScale(2, RoundingMode.HALF_EVEN);
+                dadosCalcio.setNomeAdicional(nomeNutrienteAdicional);
+                dadosCalcio.setValorAdicional(bd15.doubleValue());
+                
+                break;
+            case "Hidróxido de Cálcio":
+                qtdAplicar = new CorrecaoCalcioMagnesio().calculaQuantidadeAplicar(teorDeCao, Double.parseDouble(cxPRNT.getText())/100);
+                BigDecimal bd11 = new BigDecimal(qtdAplicar).setScale(2, RoundingMode.HALF_EVEN);
+                dadosCalcio.setQtdAplicar(bd11.doubleValue());
+                
+                custo = new CorrecaoCalcioMagnesio().calculaCusto(Double.parseDouble(cxValorFonteCalcio.getText()), bd11.doubleValue());
+                BigDecimal bd12 = new BigDecimal(custo).setScale(2, RoundingMode.HALF_EVEN);
+                dadosCalcio.setCusto(bd12.doubleValue());
+                
+                dadosCalcio.setNomeAdicional(nomeNutrienteAdicional);
+                dadosCalcio.setValorAdicional(valorNutrienteAdicional);
+                
+                break;
+            case "Calcário Magnesiano":
+                qtdAplicar = new CorrecaoCalcioMagnesio().calculaQuantidadeAplicar(teorDeCao, Double.parseDouble(cxPRNT.getText())/100);
+                BigDecimal bd13 = new BigDecimal(qtdAplicar).setScale(2, RoundingMode.HALF_EVEN);
+                dadosCalcio.setQtdAplicar(bd13.doubleValue());
+                
+                custo = new CorrecaoCalcioMagnesio().calculaCusto(Double.parseDouble(cxValorFonteCalcio.getText()), bd13.doubleValue());
+                BigDecimal bd14 = new BigDecimal(custo).setScale(2, RoundingMode.HALF_EVEN);
+                dadosCalcio.setCusto(bd14.doubleValue());
+                
+                dadosCalcio.setNomeAdicional(nomeNutrienteAdicional);
+                dadosCalcio.setValorAdicional(valorNutrienteAdicional);
+                
+                break;
+            default:
+                qtdAplicar = 0;
+                custo = 0;
+                break;    
+        }
+        
+        TelaCorrecaoCalcioMagnesio ccm = new TelaCorrecaoCalcioMagnesio();
+        ccm.setVisible(true);
+        ccm.mostrarCorrecaoCalcioMagnesio(dadosCalcio);
     }
 
 }
