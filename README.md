@@ -4,29 +4,25 @@ Integração da interface gráfica com o restante da arquitetura.
 
 Tela principal
 
-![image](https://user-images.githubusercontent.com/80367902/143326002-0cbc013d-1409-4c6f-a296-b7b971043867.png)
+![image](https://user-images.githubusercontent.com/80367902/144151452-34ef3ff3-a24b-4ca8-9123-c49c922961b4.png)
 
-A tela principal oferece a possibilidade de escolher entre as Correções disponíveis. 
-Para continuar vamos seguir com a escolha da Correção de Fósforo.
+A tela principal oferece a possibilidade de escolher entre as Correções disponíveis. Nela, podemos preecher as correções, e ao clicar para enviar a correção, recebemos os resultados em uma nova janela.
+Abaixo um exemplo do preenchimento da correção de fósforo, potássio e cálcio/magnésio.
 
-Tela para correção de Fósforo
+![image](https://user-images.githubusercontent.com/80367902/144151811-a3d855c0-6027-4479-a0ba-e3ebe44083c6.png)
 
-![image](https://user-images.githubusercontent.com/80367902/143326052-d99b6bf6-a8c4-4d72-b0fd-dd72f2f8e2fa.png)
+![image](https://user-images.githubusercontent.com/80367902/144152609-bbcfb812-773d-4c58-9a79-50bda7bf41dd.png)
 
-A tela para realizar as correções de Fósforo irá abrir desta maneira, tendo os campos que devem ser preenchidos pelo usuário, e os campos que vão retornar os resultados após realização dos cálculos.
+Tela para os resultados da correção de Fósforo
 
-Ao preencher as informações a tela ficará assim:
-![image](https://user-images.githubusercontent.com/80367902/143326096-17b375a3-f60d-407e-8f8f-6c164fc68dd1.png)
+![image](https://user-images.githubusercontent.com/80367902/144152325-2c8e7ecb-4cc7-442e-b620-d09b230e4ae1.png)
 
-Ao pressionar o botão enviar será realizado os cálculos desejados. 
-![image](https://user-images.githubusercontent.com/80367902/143326123-f6213266-1acc-47a0-b4ea-95627070e8b0.png)
+Tela para os resultados da correção do Potássio
 
-As telas para outras correções tem o mesmo principio de funcionamento.
+![image](https://user-images.githubusercontent.com/80367902/144152522-a825f3bb-efce-4b44-815b-4ba77652bbcd.png)
 
-Temos também a tela de Valores Ideais.
+Tela para resultados da correção de Cálcio/Magnésio
 
-![image](https://user-images.githubusercontent.com/80367902/143316715-468b2673-12f6-4453-bab9-5984c7321272.png)
+![image](https://user-images.githubusercontent.com/80367902/144152660-a99643af-0b79-4698-9442-71cf0680e195.png)
 
-Nesta tela o usuário escolhe a opção de solo que ele deseja consultar os valores ideais, e então clica no botão consultar, retornando os valores nos campos de texto.
-![image](https://user-images.githubusercontent.com/80367902/143316823-86b591be-00fa-406f-a078-fc35911dd5bf.png)
-
+Se o usuário desejar mudar alguma informação, basta fechar a janela de resultados, e na tela principal alterar o valor desejado, assim ao enviar novamente terá a nova correção. 
