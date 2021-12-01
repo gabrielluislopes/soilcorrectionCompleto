@@ -275,7 +275,7 @@ public class TelaCorrecaoCalcioMagnesio extends javax.swing.JFrame {
         getContentPane().add(cxCorrecao);
         cxCorrecao.setBounds(400, 660, 350, 30);
 
-        rtFundo.setIcon(new javax.swing.ImageIcon("C:\\Users\\gabri\\OneDrive\\Documentos\\UTFPR\\2021 - semestre 2\\Arquitetura de Software\\soilcorrectionCompleto\\soilcorrection\\src\\main\\java\\gui\\imagens\\background.png")); // NOI18N
+        rtFundo.setIcon(new javax.swing.ImageIcon("C:\\Users\\gabri\\OneDrive\\Documentos\\UTFPR\\2021 - semestre 2\\Arquitetura de Software\\soilcorrectionCompleto\\soilcorrection\\src\\main\\java\\imagens\\background.png")); // NOI18N
         getContentPane().add(rtFundo);
         rtFundo.setBounds(-10, -10, 1050, 790);
 

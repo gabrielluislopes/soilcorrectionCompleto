@@ -200,7 +200,7 @@ public class TelaCorrecaoFosforo extends javax.swing.JFrame {
         rtFundo.setBackground(new java.awt.Color(255, 255, 255));
         rtFundo.setForeground(new java.awt.Color(0, 0, 0));
         rtFundo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        rtFundo.setIcon(new javax.swing.ImageIcon("C:\\Users\\gabri\\OneDrive\\Documentos\\UTFPR\\2021 - semestre 2\\Arquitetura de Software\\soilcorrectionCompleto\\soilcorrection\\src\\main\\java\\gui\\imagens\\background.png")); // NOI18N
+        rtFundo.setIcon(new javax.swing.ImageIcon("C:\\Users\\gabri\\OneDrive\\Documentos\\UTFPR\\2021 - semestre 2\\Arquitetura de Software\\soilcorrectionCompleto\\soilcorrection\\src\\main\\java\\imagens\\background.png")); // NOI18N
         rtFundo.setText("Enviar");
         rtFundo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         getContentPane().add(rtFundo);
